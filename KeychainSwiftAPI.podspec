@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
                    in Swift projects. Interfacing with the original C keychain API is combersome from
                    Swift, and is prone to errors which lead to security vulnerabilities. This
                    library is written according to the best security coding practices and guidelines.
+                   This library is written by Checkmarx, an application security expert: www.checkmarx.com
                    DESC
 
   s.homepage     = "http://EXAMPLE/KeychainSwiftAPI"
@@ -51,9 +52,9 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
   
-  s.author             = { "Denis Krivitski" => "denis.krivitski@gmail.com" }
+  s.author             = { "Denis Krivitski" => "denis@ddkmobile.com" }
   # Or just: s.author    = "Denis Krivitski"
-  # s.authors            = { "Denis Krivitski" => "denis.krivitski@gmail.com" }
+  # s.authors            = { "Denis Krivitski" => "denis@ddkmobile.com" }
   # s.social_media_url   = "http://twitter.com/Denis Krivitski"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
