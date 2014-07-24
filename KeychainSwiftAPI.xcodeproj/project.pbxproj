@@ -13,8 +13,8 @@
 		929005EB197EA32300D49D3D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929005EA197EA32300D49D3D /* Security.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		929005ED197EA43500D49D3D /* KeychainSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */; };
 		92C714FC1980FBBA006D29AD /* KeychainSwiftAPI.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 92C714FB1980FBBA006D29AD /* KeychainSwiftAPI.podspec */; };
-		92C715001980FDD9006D29AD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 92C714FF1980FDD9006D29AD /* LICENSE */; };
 		92C7150419810454006D29AD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 92C7150319810454006D29AD /* README.md */; };
+		92C715061981064F006D29AD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 92C715051981064F006D29AD /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +37,8 @@
 		929005EA197EA32300D49D3D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftAPI.swift; sourceTree = "<group>"; };
 		92C714FB1980FBBA006D29AD /* KeychainSwiftAPI.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeychainSwiftAPI.podspec; sourceTree = SOURCE_ROOT; };
-		92C714FF1980FDD9006D29AD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		92C7150319810454006D29AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		92C715051981064F006D29AD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +119,9 @@
 		92C714FD1980FBC0006D29AD /* Pod */ = {
 			isa = PBXGroup;
 			children = (
+				92C715051981064F006D29AD /* LICENSE */,
 				92C7150319810454006D29AD /* README.md */,
 				92C714FB1980FBBA006D29AD /* KeychainSwiftAPI.podspec */,
-				92C714FF1980FDD9006D29AD /* LICENSE */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92C715001980FDD9006D29AD /* LICENSE in Resources */,
+				92C715061981064F006D29AD /* LICENSE in Resources */,
 				92C714FC1980FBBA006D29AD /* KeychainSwiftAPI.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

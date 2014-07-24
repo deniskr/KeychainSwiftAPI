@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    This library is written by Checkmarx, an application security expert: www.checkmarx.com
                    DESC
 
-  s.homepage     = "http://EXAMPLE/KeychainSwiftAPI"
+  s.homepage     = "https://github.com/deniskr/KeychainSwiftAPI"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
