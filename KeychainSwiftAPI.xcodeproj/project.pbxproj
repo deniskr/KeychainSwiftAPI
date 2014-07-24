@@ -10,6 +10,10 @@
 		929005D4197EA27800D49D3D /* KeychainSwiftAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 929005D3197EA27800D49D3D /* KeychainSwiftAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		929005DA197EA27800D49D3D /* KeychainSwiftAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929005CE197EA27800D49D3D /* KeychainSwiftAPI.framework */; };
 		929005E1197EA27800D49D3D /* KeychainSwiftAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005E0197EA27800D49D3D /* KeychainSwiftAPITests.swift */; };
+		929005EB197EA32300D49D3D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929005EA197EA32300D49D3D /* Security.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		929005ED197EA43500D49D3D /* KeychainSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */; };
+		92C714FC1980FBBA006D29AD /* KeychainSwiftAPI.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 92C714FB1980FBBA006D29AD /* KeychainSwiftAPI.podspec */; };
+		92C715001980FDD9006D29AD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 92C714FF1980FDD9006D29AD /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		929005D9197EA27800D49D3D /* KeychainSwiftAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainSwiftAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		929005DF197EA27800D49D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929005E0197EA27800D49D3D /* KeychainSwiftAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftAPITests.swift; sourceTree = "<group>"; };
+		929005EA197EA32300D49D3D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftAPI.swift; sourceTree = "<group>"; };
+		92C714FB1980FBBA006D29AD /* KeychainSwiftAPI.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeychainSwiftAPI.podspec; sourceTree = SOURCE_ROOT; };
+		92C714FF1980FDD9006D29AD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929005EB197EA32300D49D3D /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,8 +80,11 @@
 		929005D0197EA27800D49D3D /* KeychainSwiftAPI */ = {
 			isa = PBXGroup;
 			children = (
+				929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */,
 				929005D3197EA27800D49D3D /* KeychainSwiftAPI.h */,
 				929005D1197EA27800D49D3D /* Supporting Files */,
+				92C714FE1980FBD0006D29AD /* Frameworks */,
+				92C714FD1980FBC0006D29AD /* Pod */,
 			);
 			path = KeychainSwiftAPI;
 			sourceTree = "<group>";
@@ -100,6 +112,23 @@
 				929005DF197EA27800D49D3D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92C714FD1980FBC0006D29AD /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				92C714FB1980FBBA006D29AD /* KeychainSwiftAPI.podspec */,
+				92C714FF1980FDD9006D29AD /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		92C714FE1980FBD0006D29AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				929005EA197EA32300D49D3D /* Security.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +192,7 @@
 				TargetAttributes = {
 					929005CD197EA27800D49D3D = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 6Y3PEVXWSC;
 					};
 					929005D8197EA27800D49D3D = {
 						CreatedOnToolsVersion = 6.0;
@@ -193,6 +223,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92C715001980FDD9006D29AD /* LICENSE in Resources */,
+				92C714FC1980FBBA006D29AD /* KeychainSwiftAPI.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929005ED197EA43500D49D3D /* KeychainSwiftAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -307,7 +340,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,30 +353,39 @@
 		929005E5197EA27800D49D3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KeychainSwiftAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		929005E6197EA27800D49D3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KeychainSwiftAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -396,6 +438,7 @@
 				929005E6197EA27800D49D3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		929005E7197EA27800D49D3D /* Build configuration list for PBXNativeTarget "KeychainSwiftAPITests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +447,7 @@
 				929005E9197EA27800D49D3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

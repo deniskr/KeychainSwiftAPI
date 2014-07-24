@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import KeychainSwiftAPI
 
 class KeychainSwiftAPITests: XCTestCase {
     
@@ -23,7 +24,10 @@ class KeychainSwiftAPITests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        
+        let res = secItemCopyMatching(query: ["1" as NSString : 1])
+        
+        XCTAssert(res.status == 0, "Pass")
     }
     
     func testPerformanceExample() {
