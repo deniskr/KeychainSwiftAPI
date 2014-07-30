@@ -9,23 +9,84 @@
 import Foundation
 import Security
 
+public func ==(a:Keychain.ResultCode, b:Keychain.ResultCode) -> Bool
+{
+    return a.toRaw() == b.toRaw()
+}
+
 public class Keychain
 {
     
-    public enum ResultCode : OSStatus {
-        case errSecSuccess                  = 0        // No error.
-        case errSecUnimplemented            = -4       // Function or operation not implemented.
-        case errSecParam                    = -50      // One or more parameters passed to the function were not valid.
-        case errSecAllocate                 = -108     // Failed to allocate memory.
-        case errSecNotAvailable             = -25291   // No trust results are available.
-        case errSecAuthFailed               = -25293   // Authorization/Authentication failed.
-        case errSecDuplicateItem            = -25299   // The item already exists.
-        case errSecItemNotFound             = -25300   // The item cannot be found.
-        case errSecInteractionNotAllowed    = -25308   // Interaction with the Security Server is not allowed.
-        case errSecDecode                   = -26275   // Unable to decode the provided data.
+    public enum ResultCode : Printable {
+        case errSecSuccess                //  = 0        // No error.
+        case errSecUnimplemented          //  = -4       // Function or operation not implemented.
+        case errSecParam                  //  = -50      // One or more parameters passed to the function were not valid.
+        case errSecAllocate               //  = -108     // Failed to allocate memory.
+        case errSecNotAvailable           //  = -25291   // No trust results are available.
+        case errSecAuthFailed             //  = -25293   // Authorization/Authentication failed.
+        case errSecDuplicateItem          //  = -25299   // The item already exists.
+        case errSecItemNotFound           //  = -25300   // The item cannot be found.
+        case errSecInteractionNotAllowed  //  = -25308   // Interaction with the Security Server is not allowed.
+        case errSecDecode                 //  = -26275   // Unable to decode the provided data.
+        case other(OSStatus)
+        
+        public func toRaw() -> OSStatus
+        {
+            switch self {
+            case errSecSuccess:                 return  0
+            case errSecUnimplemented:           return -4
+            case errSecParam:                   return -50
+            case errSecAllocate:                return -108
+            case errSecNotAvailable:            return -25291
+            case errSecAuthFailed:              return -25293
+            case errSecDuplicateItem:           return -25299
+            case errSecItemNotFound:            return -25300
+            case errSecInteractionNotAllowed:   return -25308
+            case errSecDecode:                  return -26275
+            case let other(status):             return status
+            }
+        }
+        
+        public static func fromRaw(status : OSStatus) -> ResultCode
+        {
+            switch status {
+                
+            case    0 	 : return ResultCode.errSecSuccess
+            case   -4 	 : return ResultCode.errSecUnimplemented
+            case   -50 	 : return ResultCode.errSecParam
+            case   -108  : return ResultCode.errSecAllocate
+            case   -25291: return ResultCode.errSecNotAvailable
+            case   -25293: return ResultCode.errSecAuthFailed
+            case   -25299: return ResultCode.errSecDuplicateItem
+            case   -25300: return ResultCode.errSecItemNotFound
+            case   -25308: return ResultCode.errSecInteractionNotAllowed
+            case   -26275: return ResultCode.errSecDecode
+                
+            default: return ResultCode.other(status)
+            }
+        }
+        
+        public var description: String { get {
+            switch self {
+            case errSecSuccess:                 return "Success"
+            case errSecUnimplemented:           return "Function or operation not implemented."
+            case errSecParam:                   return "One or more parameters passed to the function were not valid."
+            case errSecAllocate:                return "Failed to allocate memory."
+            case errSecNotAvailable:            return "No trust results are available."
+            case errSecAuthFailed:              return "Authorization/Authentication failed."
+            case errSecDuplicateItem:           return "The item already exists."
+            case errSecItemNotFound:            return "The item cannot be found."
+            case errSecInteractionNotAllowed:   return "Interaction with the Security Server is not allowed."
+            case errSecDecode:                  return "Unable to decode the provided data."
+            case let other(status):             return "Error code: \(status)"
+            }
+        }}
+        
+        
     }
     
-    
+
+
     
 
     public class Query {
@@ -939,9 +1000,11 @@ public class Keychain
         let dic = query.toNSDictionary()
         let result = UnsafePointer<Unmanaged<AnyObject>?>.alloc(1)
         let statusRaw = SecItemAdd(dic,result)
-        let status = ResultCode.fromRaw(statusRaw)!
+        let status = ResultCode.fromRaw(statusRaw)
         
         if status == .errSecSuccess {
+            
+            // This cast is done to avoid compiler crash in XCode6-beta4
             let resultCasted = UnsafePointer<AnyObject?>(result)
             let resultValue = resultCasted.memory
             return (status: status, result: resultValue as? NSObject)
@@ -960,9 +1023,9 @@ public class Keychain
         let dic = query.toNSDictionary()
         let result = UnsafePointer<Unmanaged<AnyObject>?>.alloc(1)
         let statusRaw = SecItemCopyMatching(dic, result)
-        let status = ResultCode.fromRaw(statusRaw)!
+        let status = ResultCode.fromRaw(statusRaw)
 
-        if  status == ResultCode.errSecSuccess {
+        if  status == .errSecSuccess {
             
             // This cast is done to avoid compiler crash in XCode6-beta4
             let resultCasted = UnsafePointer<AnyObject?>(result)
@@ -973,15 +1036,30 @@ public class Keychain
         } else {
             return (status: status, result: nil)
         }
-        
-        
     }
     
-    public class func test()
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // secItemDelete
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    public class func secItemDelete(#query : Query) -> ResultCode
     {
-        let q = Query()
-        q.kSecClass = .kSecClassCertificate
-        secItemCopyMatching(query:q)
+        let statusRaw = SecItemDelete(query.toNSDictionary())
+        let status = ResultCode.fromRaw(statusRaw)
+        return status
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // secItemUpdate
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    public class func secItemUpdate(#query : Query, #attributesToUpdate : Query) -> ResultCode
+    {
+        let statusRaw = SecItemUpdate(query.toNSDictionary(),attributesToUpdate.toNSDictionary())
+        let status = ResultCode.fromRaw(statusRaw)
+        return status
+    }
+    
 
 }
