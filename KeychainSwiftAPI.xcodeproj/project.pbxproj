@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921AA8C41986401300A2C240 /* KeychainSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */; };
 		929005D4197EA27800D49D3D /* KeychainSwiftAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 929005D3197EA27800D49D3D /* KeychainSwiftAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		929005DA197EA27800D49D3D /* KeychainSwiftAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929005CE197EA27800D49D3D /* KeychainSwiftAPI.framework */; };
 		929005E1197EA27800D49D3D /* KeychainSwiftAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005E0197EA27800D49D3D /* KeychainSwiftAPITests.swift */; };
@@ -254,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921AA8C41986401300A2C240 /* KeychainSwiftAPI.swift in Sources */,
 				929005E1197EA27800D49D3D /* KeychainSwiftAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +310,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -347,6 +350,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";

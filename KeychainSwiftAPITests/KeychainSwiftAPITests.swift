@@ -9,12 +9,17 @@
 import UIKit
 import XCTest
 import KeychainSwiftAPI
+import Security
 
 class KeychainSwiftAPITests: XCTestCase {
+    
+    var keychain : Keychain = Keychain()
+    
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.keychain = Keychain()
     }
     
     override func tearDown() {
@@ -24,10 +29,31 @@ class KeychainSwiftAPITests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
+        // kSecAttrAuthenticationType.takeUnretainedValue() as CFTypeRef
+
+        let q = Keychain.Query()
+        q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
+        q.kSecReturnData = true
+        q.kSecReturnAttributes = true
+        q.kSecReturnRef = true
+        q.kSecReturnPersistentRef = true
         
-        let res = secItemCopyMatching(query: ["1" as NSString : 1])
+        q.kSecValueData = "Privet".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         
-        XCTAssert(res.status == 0, "Pass")
+        let res1 = Keychain.secItemAdd(query: q)
+        
+        if let resUw = res1.result {
+            println("\( CFGetTypeID(resUw)  )")
+        } else {
+            println("res is nil")
+        }
+        let res = Keychain.secItemCopyMatching(query:q)
+
+        println(NSString(data: res.result as? NSData, encoding: NSUTF8StringEncoding))
+        
+
+        
+        XCTAssert(res.status == Keychain.ResultCode.errSecSuccess, "Pass")
     }
     
     func testPerformanceExample() {
