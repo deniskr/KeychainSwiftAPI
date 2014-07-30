@@ -165,3 +165,23 @@ let keyClassValuesMetaCode = stringEnumGen(keyClassValues,"KSecAttrKeyClassValue
 let keyClassValuesCode = "public enum KSecAttrKeyClassValue : String {;case kSecAttrKeyClassPublic = \"\(kSecAttrKeyClassPublic)\";case kSecAttrKeyClassPrivate = \"\(kSecAttrKeyClassPrivate)\";case kSecAttrKeyClassSymmetric = \"\(kSecAttrKeyClassSymmetric)\";};;"
 println(reformatCode(keyClassValuesCode))
 
+
+let searchAttibuteKeys = ["kSecMatchPolicy",
+    "kSecMatchItemList",
+    "kSecMatchSearchList",
+    "kSecMatchIssuers",
+    "kSecMatchEmailAddressIfPresent",
+    "kSecMatchSubjectContains",
+    "kSecMatchCaseInsensitive",
+    "kSecMatchTrustedOnly",
+    "kSecMatchValidOnDate",
+    "kSecMatchLimit",
+    "kSecMatchLimitOne",
+    "kSecMatchLimitAll"]
+
+let searchAttibuteKeysMetaCode = keyGen(searchAttibuteKeys)
+println(attributeItemKeysMetaCode)
+
+let searchAttibuteKeysCode = "public var kSecMatchPolicy : KSecMatchPolicyValue? ;private let kSecMatchPolicyKey = \"\(kSecMatchPolicy)\" ;;;public var kSecMatchItemList : KSecMatchItemListValue? ;private let kSecMatchItemListKey = \"\(kSecMatchItemList)\" ;;;public var kSecMatchSearchList : KSecMatchSearchListValue? ;private let kSecMatchSearchListKey = \"\(kSecMatchSearchList)\" ;;;public var kSecMatchIssuers : KSecMatchIssuersValue? ;private let kSecMatchIssuersKey = \"\(kSecMatchIssuers)\" ;;;public var kSecMatchEmailAddressIfPresent : KSecMatchEmailAddressIfPresentValue? ;private let kSecMatchEmailAddressIfPresentKey = \"\(kSecMatchEmailAddressIfPresent)\" ;;;public var kSecMatchSubjectContains : KSecMatchSubjectContainsValue? ;private let kSecMatchSubjectContainsKey = \"\(kSecMatchSubjectContains)\" ;;;public var kSecMatchCaseInsensitive : KSecMatchCaseInsensitiveValue? ;private let kSecMatchCaseInsensitiveKey = \"\(kSecMatchCaseInsensitive)\" ;;;public var kSecMatchTrustedOnly : KSecMatchTrustedOnlyValue? ;private let kSecMatchTrustedOnlyKey = \"\(kSecMatchTrustedOnly)\" ;;;public var kSecMatchValidOnDate : KSecMatchValidOnDateValue? ;private let kSecMatchValidOnDateKey = \"\(kSecMatchValidOnDate)\" ;;;public var kSecMatchLimit : KSecMatchLimitValue? ;private let kSecMatchLimitKey = \"\(kSecMatchLimit)\" ;;;public var kSecMatchLimitOne : KSecMatchLimitOneValue? ;private let kSecMatchLimitOneKey = \"\(kSecMatchLimitOne)\" ;;;public var kSecMatchLimitAll : KSecMatchLimitAllValue? ;private let kSecMatchLimitAllKey = \"\(kSecMatchLimitAll)\" ;;;"
+println(reformatCode(searchAttibuteKeysCode))
+

@@ -37,7 +37,6 @@ public class Keychain
 
         public var kSecClass : KSecClassValue?
         private let kSecClassKey = "class"
-        
         public enum KSecClassValue : String {
             
             case kSecClassGenericPassword   = "genp"
@@ -47,6 +46,12 @@ public class Keychain
             case kSecClassIdentity          = "idnt"
             
         }
+        private func kSecClassAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecClass {
+                dic.setObject(v.toRaw(), forKey: kSecClassKey)
+            }
+        }
+
         
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Return data type
@@ -55,16 +60,36 @@ public class Keychain
         
         public var kSecReturnData : Bool = false
         private let kSecReturnDataKey = "r_Data"
-        
+        private func kSecReturnDataAddToDic(dic : NSMutableDictionary) {
+            if kSecReturnData {
+                dic.setObject(NSNumber(bool: true), forKey: kSecReturnDataKey)
+            }
+        }
+
         public var kSecReturnAttributes : Bool = false
         private let kSecReturnAttributesKey = "r_Attributes"
-        
+        private func kSecReturnAttributesAddToDic(dic : NSMutableDictionary) {
+            if kSecReturnAttributes {
+                dic.setObject(NSNumber(bool: true), forKey: kSecReturnAttributesKey)
+            }
+        }
+
         public var kSecReturnRef : Bool = false
         private let kSecReturnRefKey = "r_Ref"
-        
+        private func kSecReturnRefAddToDic(dic : NSMutableDictionary) {
+            if kSecReturnRef {
+                dic.setObject(NSNumber(bool: true), forKey: kSecReturnRefKey)
+            }
+        }
+
         public var kSecReturnPersistentRef : Bool = false
         private let kSecReturnPersistentRefKey = "r_PersistentRef"
-        
+        private func kSecReturnPersistentRefAddToDic(dic : NSMutableDictionary) {
+            if kSecReturnPersistentRef {
+                dic.setObject(NSNumber(bool: true), forKey: kSecReturnPersistentRefKey)
+            }
+        }
+
         
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Value
@@ -73,25 +98,50 @@ public class Keychain
         
         public var kSecValueData : NSData?
         private let kSecValueDataKey = "v_Data"
+        private func kSecValueDataAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecValueData {
+                dic.setObject(v, forKey: kSecValueDataKey)
+            }
+        }
+        
         
         public var kSecValueRef : KSecValueRefValue?
         private let kSecValueRefKey = "v_Ref"
-        
         public enum KSecValueRefValue {
             case Key(SecKeyRef)
             case Certificate(SecCertificateRef)
             case Identity(SecIdentityRef)
         }
-        
+        private func kSecValueRefAddToDic(dic : NSMutableDictionary) {
+            if let v = self.kSecValueRef {
+                switch v {
+                case let .Key(val):
+                    dic.setObject(val, forKey: self.kSecValueRefKey)
+                    
+                case let .Certificate(val):
+                    dic.setObject(val, forKey: self.kSecValueRefKey)
+                    
+                case let .Identity(val):
+                    dic.setObject(val, forKey: self.kSecValueRefKey)
+                    
+                }
+            }
+        }
+
         
         public var kSecValuePersistentRef : NSData?
         private let kSecValuePersistentRefKey = "v_PersistentRef"
+        private func kSecValuePersistentRefAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecValuePersistentRef {
+                dic.setObject(v, forKey: kSecValuePersistentRefKey)
+            }
+        }
         
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Attributes
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
        
-        public var kSecAttrAccessible : KSecAttrAccessibleValue?
+        public  var kSecAttrAccessible : KSecAttrAccessibleValue?
         private let kSecAttrAccessibleKey = "pdmn"
         public enum KSecAttrAccessibleValue : String {
             case kSecAttrAccessibleWhenUnlocked = "ak"
@@ -101,64 +151,125 @@ public class Keychain
             case kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly = "cku"
             case kSecAttrAccessibleAlwaysThisDeviceOnly = "dku"
         }
+        private func kSecAttrAccessibleAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrAccessible {
+                dic.setObject(v.toRaw(), forKey: kSecAttrAccessibleKey)
+            }
+        }
         
-
         
-        public var kSecAttrCreationDate : NSDate?
-        private let kSecAttrCreationDateKey = "cdat"
+        public   var kSecAttrCreationDate : NSDate?
+        private  let kSecAttrCreationDateKey = "cdat"
+        private func kSecAttrCreationDateAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrCreationDate {
+                dic.setObject(v, forKey: kSecAttrCreationDateKey)
+            }
+        }
         
-        
-        public var kSecAttrModificationDate : NSDate?
-        private let kSecAttrModificationDateKey = "mdat"
-        
+        public   var kSecAttrModificationDate : NSDate?
+        private  let kSecAttrModificationDateKey = "mdat"
+        private func kSecAttrModificationDateAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrModificationDate {
+                dic.setObject(v, forKey: kSecAttrModificationDateKey)
+            }
+        }
         
         public var kSecAttrDescription : String?
         private let kSecAttrDescriptionKey = "desc"
-        
+        private func kSecAttrDescriptionAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrDescription {
+                dic.setObject(v, forKey: kSecAttrDescriptionKey)
+            }
+        }
         
         public var kSecAttrComment : String?
         private let kSecAttrCommentKey = "icmt"
+        private func kSecAttrCommentAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrComment {
+                dic.setObject(v, forKey: kSecAttrCommentKey)
+            }
+        }
         
-        
-        public var kSecAttrCreator : UInt? // NSNumber with unsigned integer
+        public var kSecAttrCreator : UInt32? // NSNumber with unsigned integer
         private let kSecAttrCreatorKey = "crtr"
+        private func kSecAttrCreatorAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrCreator {
+                dic.setObject(NSNumber(unsignedInt: v), forKey: kSecAttrCreatorKey)
+            }
+        }
         
-        
-        public var kSecAttrType : UInt? // NSNumber with unsigned integer
-        private let kSecAttrTypeKey = "type"
-        
+        public   var kSecAttrType : UInt32? // NSNumber with unsigned integer
+        private  let kSecAttrTypeKey = "type"
+        private func kSecAttrTypeAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrType {
+                dic.setObject(NSNumber(unsignedInt: v), forKey: kSecAttrTypeKey)
+            }
+        }
         
         public var kSecAttrLabel : String?
         private let kSecAttrLabelKey = "labl"
-        
+        private func kSecAttrLabelAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrLabel {
+                dic.setObject(v, forKey: kSecAttrLabelKey)
+            }
+        }
         
         public var kSecAttrIsInvisible : Bool = false // NSNumber with bool
         private let kSecAttrIsInvisibleKey = "invi"
-        
+        private func kSecAttrIsInvisibleAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrIsInvisible {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrIsInvisibleKey)
+            }
+        }
         
         public var kSecAttrIsNegative : Bool = false // NSNumber with bool
         private let kSecAttrIsNegativeKey = "nega"
-        
+        private func kSecAttrIsNegativeAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrIsNegative {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrIsNegativeKey)
+            }
+        }
+
         
         public var kSecAttrAccount : String?
         private let kSecAttrAccountKey = "acct"
-        
+        private func kSecAttrAccountAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrAccount {
+                dic.setObject(v, forKey: kSecAttrAccountKey)
+            }
+        }
         
         public var kSecAttrService : String?
         private let kSecAttrServiceKey = "svce"
-        
+         private func kSecAttrServiceAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrService {
+                dic.setObject(v, forKey: kSecAttrServiceKey)
+            }
+        }
         
         public var kSecAttrGeneric : NSData?
         private let kSecAttrGenericKey = "gena"
-        
+         private func kSecAttrGenericAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrGeneric {
+                dic.setObject(v, forKey: kSecAttrGenericKey)
+            }
+        }
         
         public var kSecAttrSecurityDomain : String?
         private let kSecAttrSecurityDomainKey = "sdmn"
-        
+         private func kSecAttrSecurityDomainAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrSecurityDomain {
+                dic.setObject(v, forKey: kSecAttrSecurityDomainKey)
+            }
+        }
         
         public var kSecAttrServer : String?
         private let kSecAttrServerKey = "srvr"
-        
+         private func kSecAttrServerAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrServer {
+                dic.setObject(v, forKey: kSecAttrServerKey)
+            }
+        }
         
         public var kSecAttrProtocol : KSecAttrProtocolValue?
         private let kSecAttrProtocolKey = "ptcl"
@@ -195,6 +306,11 @@ public class Keychain
             case kSecAttrProtocolIRCS = "ircs"
             case kSecAttrProtocolPOP3S = "pops"
         }
+        private func kSecAttrProtocolAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrProtocol {
+                dic.setObject(v.toRaw(), forKey: kSecAttrProtocolKey)
+            }
+        }
 
         
         
@@ -210,35 +326,68 @@ public class Keychain
             case kSecAttrAuthenticationTypeHTMLForm = "form"
             case kSecAttrAuthenticationTypeDefault = "dflt"
         }
+        private func kSecAttrAuthenticationTypeAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrAuthenticationType {
+                dic.setObject(v.toRaw(), forKey: kSecAttrAuthenticationTypeKey)
+            }
+        }
 
         
-        public var kSecAttrPort : UInt? // NSNumber unsigned
+        public var kSecAttrPort : UInt32? // NSNumber unsigned
         private let kSecAttrPortKey = "port"
-        
+        private func kSecAttrPortAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrPort {
+                dic.setObject(NSNumber(unsignedInt: v), forKey: kSecAttrPortKey)
+            }
+        }
         
         public var kSecAttrPath : String?
         private let kSecAttrPathKey = "path"
-        
+         private func kSecAttrPathAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrPath {
+                dic.setObject(v, forKey: kSecAttrPathKey)
+            }
+        }
         
         public var kSecAttrSubject : NSData?
         private let kSecAttrSubjectKey = "subj"
-        
+         private func kSecAttrSubjectAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrSubject {
+                dic.setObject(v, forKey: kSecAttrSubjectKey)
+            }
+        }
         
         public var kSecAttrIssuer : NSData?
         private let kSecAttrIssuerKey = "issr"
-        
+         private func kSecAttrIssuerAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrIssuer {
+                dic.setObject(v, forKey: kSecAttrIssuerKey)
+            }
+        }
         
         public var kSecAttrSerialNumber : NSData?
         private let kSecAttrSerialNumberKey = "slnr"
-        
+         private func kSecAttrSerialNumberAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrSerialNumber {
+                dic.setObject(v, forKey: kSecAttrSerialNumberKey)
+            }
+        }
         
         public var kSecAttrSubjectKeyID : NSData?
         private let kSecAttrSubjectKeyIDKey = "skid"
-        
+         private func kSecAttrSubjectKeyIDAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrSubjectKeyID {
+                dic.setObject(v, forKey: kSecAttrSubjectKeyIDKey)
+            }
+        }
         
         public var kSecAttrPublicKeyHash : NSData?
         private let kSecAttrPublicKeyHashKey = "pkhh"
-        
+         private func kSecAttrPublicKeyHashAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrPublicKeyHash {
+                dic.setObject(v, forKey: kSecAttrPublicKeyHashKey)
+            }
+        }
         
         public var kSecAttrCertificateType : KSecAttrCertificateTypeValue? // NSSNumber
         private let kSecAttrCertificateTypeKey = "ctyp"
@@ -266,7 +415,16 @@ public class Keychain
             than the CSSM_CL_CUSTOM_CERT_TYPE */
             case CSSM_CL_CUSTOM_CERT_TYPE =             0x08000
         }
-        
+        private func kSecAttrCertificateTypeAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrCertificateType {
+                switch v {
+                case let .Standard(val):
+                        dic.setObject(NSNumber(unsignedInt: val.toRaw()), forKey: kSecAttrCertificateTypeKey)
+                case let .Custom(val):
+                        dic.setObject(NSNumber(unsignedInt: val), forKey: kSecAttrCertificateTypeKey)
+                }
+            }
+        }
         
         public var kSecAttrCertificateEncoding : KSecAttrCertificateEncodingValue? // NSNumber
         private let kSecAttrCertificateEncodingKey = "cenc"
@@ -289,6 +447,18 @@ public class Keychain
             CSSM_CL_CUSTOM_CERT_ENCODING */
             case CSSM_CL_CUSTOM_CERT_ENCODING =		0x8000
         }
+        private func kSecAttrCertificateEncodingAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrCertificateEncoding {
+                switch v {
+                case let .Standard(val):
+                    dic.setObject(NSNumber(unsignedInt: val.toRaw()), forKey: kSecAttrCertificateEncodingKey)
+                case let .Custom(val):
+                    dic.setObject(NSNumber(unsignedInt: val), forKey: kSecAttrCertificateEncodingKey)
+                }
+            }
+        }
+
+        
         
         public var kSecAttrKeyClass : KSecAttrKeyClassValue?
         private let kSecAttrKeyClassKey = "kcls"
@@ -297,18 +467,37 @@ public class Keychain
             case kSecAttrKeyClassPrivate = "1"
             case kSecAttrKeyClassSymmetric = "2"
         }
+        private func kSecAttrKeyClassAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrKeyClass {
+                dic.setObject(v.toRaw(), forKey: kSecAttrKeyClassKey)
+            }
+        }
+       
         
         public var kSecAttrApplicationLabel : String?
         private let kSecAttrApplicationLabelKey = "klbl"
-        
+        private func kSecAttrApplicationLabelAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrApplicationLabel {
+                dic.setObject(v, forKey: kSecAttrApplicationLabelKey)
+            }
+        }
         
         public var kSecAttrIsPermanent : Bool? // NSNumber bool
         private let kSecAttrIsPermanentKey = "perm"
-        
+        private func kSecAttrIsPermanentAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrIsPermanent {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrIsPermanentKey)
+            }
+        }
+
         
         public var kSecAttrApplicationTag : NSData?
         private let kSecAttrApplicationTagKey = "atag"
-        
+         private func kSecAttrApplicationTagAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrApplicationTag {
+                dic.setObject(v, forKey: kSecAttrApplicationTagKey)
+            }
+        }
         
         public var kSecAttrKeyType : KSecAttrKeyTypeValue? // NSNumber, in practice it is CFString
         private let kSecAttrKeyTypeKey = "type"
@@ -431,30 +620,68 @@ public class Keychain
             to CSSM_ALGID_VENDOR_DEFINED. */
             case CSSM_ALGID_VENDOR_DEFINED =		0x80000000
         }
-        
-        public var kSecAttrKeySizeInBits : Int?  // NSNumber
+        private func kSecAttrKeyTypeAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrKeyType {
+                switch v {
+                case let .Standard(val):
+                        dic.setObject(NSNumber(unsignedInt: val.toRaw()), forKey: kSecAttrKeyTypeKey)
+                case let .Custom(val):
+                        dic.setObject(NSNumber(unsignedInt: val), forKey: kSecAttrKeyTypeKey)
+                }
+            }
+        }
+
+        public var kSecAttrKeySizeInBits : Int32?  // NSNumber
         private let kSecAttrKeySizeInBitsKey = "bsiz" 
+        private func kSecAttrKeySizeInBitsAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrKeySizeInBits {
+                dic.setObject(NSNumber(int: v), forKey: kSecAttrKeySizeInBitsKey)
+            }
+        }
         
-        
-        public var kSecAttrEffectiveKeySize : Int? // NSNumber
+        public var kSecAttrEffectiveKeySize : Int32? // NSNumber
         private let kSecAttrEffectiveKeySizeKey = "esiz" 
-        
+        private func kSecAttrEffectiveKeySizeAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrEffectiveKeySize {
+                dic.setObject(NSNumber(int: v), forKey: kSecAttrEffectiveKeySizeKey)
+            }
+        }
         
         public var kSecAttrCanEncrypt : Bool? // NSNumber
         private let kSecAttrCanEncryptKey = "encr" 
-        
+        private func kSecAttrCanEncryptAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrCanEncrypt {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanEncryptKey)
+            }
+        }
+
         
         public var kSecAttrCanDecrypt : Bool? // NSNumber
         private let kSecAttrCanDecryptKey = "decr" 
-        
+        private func kSecAttrCanDecryptAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrCanDecrypt {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanDecryptKey)
+            }
+        }
+
         
         public var kSecAttrCanDerive : Bool? // NSNumber
         private let kSecAttrCanDeriveKey = "drve" 
-        
+        private func kSecAttrCanDeriveAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrCanDerive {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanDeriveKey)
+            }
+        }
+
         
         public var kSecAttrCanSign : Bool? // NSNumber
         private let kSecAttrCanSignKey = "sign" 
-        
+        private func kSecAttrCanSignAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrCanSign {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanSignKey)
+            }
+        }
+
         
         public var kSecAttrCanVerify : Bool? // NSNumber
         private let kSecAttrCanVerifyKey = "vrfy" 
@@ -462,60 +689,250 @@ public class Keychain
         
         public var kSecAttrCanWrap : Bool? // NSNumber
         private let kSecAttrCanWrapKey = "wrap" 
-        
+        private func kSecAttrCanWrapAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrCanWrap {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanWrapKey)
+            }
+        }
+
         
         public var kSecAttrCanUnwrap : Bool? // NSNumber
         private let kSecAttrCanUnwrapKey = "unwp" 
-        
+        private func kSecAttrCanUnwrapAddToDic(dic : NSMutableDictionary) {
+            if kSecAttrCanUnwrap {
+                dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanUnwrapKey)
+            }
+        }
+
         public var kSecAttrAccessGroup : String?
         private let kSecAttrAccessGroupKey = "agrp"
+         private func kSecAttrAccessGroupAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecAttrAccessGroup {
+                dic.setObject(v, forKey: kSecAttrAccessGroupKey)
+            }
+        }
+        
+        
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Search Attributes
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        public var kSecMatchPolicy : SecPolicyRef?
+        private let kSecMatchPolicyKey = "m_Policy"
+         private func kSecMatchPolicyAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecMatchPolicy {
+                dic.setObject(v, forKey: kSecMatchPolicyKey)
+            }
+        }
+        
+        public var kSecMatchItemList : NSArray?
+        private let kSecMatchItemListKey = "m_ItemList"
+         private func kSecMatchItemListAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecMatchItemList {
+                dic.setObject(v, forKey: kSecMatchItemListKey)
+            }
+        }
+        
+        public var kSecMatchSearchList : NSArray?
+        private let kSecMatchSearchListKey = "m_SearchList"
+         private func kSecMatchSearchListAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecMatchSearchList {
+                dic.setObject(v, forKey: kSecMatchSearchListKey)
+            }
+        }
+        
+        public var kSecMatchIssuers : [NSData]?
+        private let kSecMatchIssuersKey = "m_Issuers"
+        private func kSecMatchIssuersAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecMatchIssuers {
+                dic.setObject(v, forKey: kSecMatchIssuersKey)
+            }
+        }
+        
+        public var kSecMatchEmailAddressIfPresent : String?
+        private let kSecMatchEmailAddressIfPresentKey = "m_EmailAddressIfPresent"
+        private func kSecMatchEmailAddressIfPresentAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecMatchEmailAddressIfPresent {
+                dic.setObject(v, forKey: kSecMatchEmailAddressIfPresentKey)
+            }
+        }
+        
+        public var kSecMatchSubjectContains : String?
+        private let kSecMatchSubjectContainsKey = "m_SubjectContains"
+        private func kSecMatchSubjectContainsAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecMatchSubjectContains {
+                dic.setObject(v, forKey: kSecMatchSubjectContainsKey)
+            }
+        }
+        
+        public var kSecMatchCaseInsensitive : Bool = false
+        private let kSecMatchCaseInsensitiveKey = "m_CaseInsensitive"
+        private func kSecMatchCaseInsensitiveAddToDic(dic : NSMutableDictionary) {
+            if kSecMatchCaseInsensitive {
+                dic.setObject(NSNumber(bool: true), forKey: kSecMatchCaseInsensitiveKey)
+            }
+        }
+
+        
+        public var kSecMatchTrustedOnly : Bool = false
+        private let kSecMatchTrustedOnlyKey = "m_TrustedOnly"
+        private func kSecMatchTrustedOnlyAddToDic(dic : NSMutableDictionary) {
+            if kSecMatchTrustedOnly {
+                dic.setObject(NSNumber(bool: true), forKey: kSecMatchTrustedOnlyKey)
+            }
+        }
+
+        
+        public var kSecMatchValidOnDate : NSDate?
+        private let kSecMatchValidOnDateKey = "m_ValidOnDate"
+        private func kSecMatchValidOnDateAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecMatchValidOnDate {
+                dic.setObject(v, forKey: kSecMatchValidOnDateKey)
+            }
+        }
+        
+        
+        public var kSecMatchLimit : KSecMatchLimitValue?
+        private let kSecMatchLimitKey = "m_Limit"
+        private let kSecMatchLimitOneKey = "m_LimitOne"
+        private let kSecMatchLimitAllKey = "m_LimitAll"
+        public enum KSecMatchLimitValue {
+            case kSecMatchLimitOne
+            case kSecMatchLimitAll
+            case limit(Int)
+        }
+        private func kSecMatchLimitAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecMatchLimit {
+                switch v {
+                case .kSecMatchLimitOne:
+                    dic.setObject(kSecMatchLimitOneKey, forKey: kSecMatchLimitKey)
+                    
+                case .kSecMatchLimitAll:
+                    dic.setObject(kSecMatchLimitAllKey, forKey: kSecMatchLimitKey)
+                    
+                case let .limit(val):
+                    dic.setObject(NSNumber(long: val), forKey: kSecMatchLimitKey)
+   
+                }
+            }
+        }
+        
+ 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Item List
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        
+        public var kSecUseItemList : KSecUseItemListValue?
+        private let kSecUseItemListKey = "u_ItemList"
+        public enum KSecUseItemListValue {
+            //case KeychainItems([SecKeychainItemRef])
+            case Keys([SecKeyRef])
+            case Certificates([SecCertificateRef])
+            case Identities([SecIdentityRef])
+            case PersistentItems([NSData])
+        }
+        private func kSecUseItemListAddToDic(dic : NSMutableDictionary) {
+            if let v = kSecUseItemList {
+                switch v {
+                case let .Keys(val):
+                    dic.setObject(val, forKey: kSecUseItemListKey)
+                    
+                case let .Certificates(val):
+                    dic.setObject(val, forKey: kSecUseItemListKey)
+                    
+                case let .Identities(val):
+                    dic.setObject(val, forKey: kSecUseItemListKey)
+                
+                case let .PersistentItems(val):
+                    dic.setObject(val, forKey: kSecUseItemListKey)
+                }
+            }
+        }
         
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Helper functions
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        
-        
+     
         public func toNSDictionary() -> NSDictionary
         {
             let dic = NSMutableDictionary()
-
-            if let v = self.kSecClass {
-                dic.setObject(v.toRaw(), forKey: kSecClassKey)
-            }
             
-            dic.setObject(NSNumber(bool: self.kSecReturnData), forKey: self.kSecReturnDataKey)
-            dic.setObject(NSNumber(bool: self.kSecReturnAttributes), forKey: self.kSecReturnAttributesKey)
-            dic.setObject(NSNumber(bool: self.kSecReturnRef), forKey: self.kSecReturnRefKey)
-            dic.setObject(NSNumber(bool: self.kSecReturnPersistentRef), forKey: self.kSecReturnPersistentRefKey)
+            let addFunctions = [
+                kSecClassAddToDic,
+                kSecReturnDataAddToDic,
+                kSecReturnAttributesAddToDic,
+                kSecReturnRefAddToDic,
+                kSecReturnPersistentRefAddToDic,
+                kSecValueDataAddToDic,
+                kSecValueRefAddToDic,
+                kSecValuePersistentRefAddToDic,
+                kSecAttrAccessibleAddToDic,
+                kSecAttrCreationDateAddToDic,
+                kSecAttrModificationDateAddToDic,
+                kSecAttrDescriptionAddToDic,
+                kSecAttrCommentAddToDic,
+                kSecAttrCreatorAddToDic,
+                kSecAttrTypeAddToDic,
+                kSecAttrLabelAddToDic,
+                kSecAttrIsInvisibleAddToDic,
+                kSecAttrIsNegativeAddToDic,
+                kSecAttrAccountAddToDic,
+                kSecAttrServiceAddToDic,
+                kSecAttrGenericAddToDic,
+                kSecAttrSecurityDomainAddToDic,
+                kSecAttrServerAddToDic,
+                kSecAttrProtocolAddToDic,
+                kSecAttrAuthenticationTypeAddToDic,
+                kSecAttrPortAddToDic,
+                kSecAttrPathAddToDic,
+                kSecAttrSubjectAddToDic,
+                kSecAttrIssuerAddToDic,
+                kSecAttrSerialNumberAddToDic,
+                kSecAttrSubjectKeyIDAddToDic,
+                kSecAttrPublicKeyHashAddToDic,
+                kSecAttrCertificateTypeAddToDic,
+                kSecAttrCertificateEncodingAddToDic,
+                kSecAttrKeyClassAddToDic,
+                kSecAttrApplicationLabelAddToDic,
+                kSecAttrIsPermanentAddToDic,
+                kSecAttrApplicationTagAddToDic,
+                kSecAttrKeyTypeAddToDic,
+                kSecAttrKeySizeInBitsAddToDic,
+                kSecAttrEffectiveKeySizeAddToDic,
+                kSecAttrCanEncryptAddToDic,
+                kSecAttrCanDecryptAddToDic,
+                kSecAttrCanDeriveAddToDic,
+                kSecAttrCanSignAddToDic,
+                kSecAttrCanWrapAddToDic,
+                kSecAttrCanUnwrapAddToDic,
+                kSecAttrAccessGroupAddToDic,
+                kSecMatchPolicyAddToDic,
+                kSecMatchItemListAddToDic,
+                kSecMatchSearchListAddToDic,
+                kSecMatchIssuersAddToDic,
+                kSecMatchEmailAddressIfPresentAddToDic,
+                kSecMatchSubjectContainsAddToDic,
+                kSecMatchCaseInsensitiveAddToDic,
+                kSecMatchTrustedOnlyAddToDic,
+                kSecMatchValidOnDateAddToDic,
+                kSecMatchLimitAddToDic,
+                kSecUseItemListAddToDic]
             
             
-            
-            if let v = self.kSecValueData {
-                dic.setObject(v, forKey: self.kSecValueDataKey)
-            }
-            
-            if let v = self.kSecValueRef {
-                switch v {
-                case let .Key(val):
-                    dic.setObject(val, forKey: self.kSecValueRefKey)
-
-                case let .Certificate(val):
-                    dic.setObject(val, forKey: self.kSecValueRefKey)
-
-                case let .Identity(val):
-                    dic.setObject(val, forKey: self.kSecValueRefKey)
-
-                }
-            }
-            
-            if let v = self.kSecValuePersistentRef {
-                dic.setObject(v, forKey: self.kSecValuePersistentRefKey)
+            for f in addFunctions {
+                f(dic)
             }
 
             return dic
         }
     }
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // secItemAdd
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     
     public class func secItemAdd(#query : Query) -> (status: ResultCode, result: NSObject?) {
 
@@ -534,7 +951,10 @@ public class Keychain
         
     }
     
-    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // secItemCopyMatching
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
     public class func secItemCopyMatching(#query : Query) -> (status: ResultCode, result: NSObject?)
     {
         let dic = query.toNSDictionary()
