@@ -1006,7 +1006,7 @@ public class Keychain
             
             // This cast is done to avoid compiler crash in XCode6-beta4
             let resultCasted = UnsafePointer<AnyObject?>(result)
-            let resultValue = resultCasted.memory
+            let resultValue : AnyObject? = resultCasted.memory
             return (status: status, result: resultValue as? NSObject)
         } else {
             return (status: status, result: nil)
@@ -1020,22 +1020,13 @@ public class Keychain
    
     public class func secItemCopyMatching(#query : Query) -> (status: ResultCode, result: NSObject?)
     {
-        let dic = query.toNSDictionary()
+        let dic : NSDictionary = query.toNSDictionary()
         let result = UnsafePointer<Unmanaged<AnyObject>?>.alloc(1)
-        let statusRaw = SecItemCopyMatching(dic, result)
+        let statusRaw : OSStatus = SecItemCopyMatching(dic, result)
         let status = ResultCode.fromRaw(statusRaw)
-
-        if  status == .errSecSuccess {
-            
-            // This cast is done to avoid compiler crash in XCode6-beta4
-            let resultCasted = UnsafePointer<AnyObject?>(result)
-            let resultValue = resultCasted.memory
-            
-            return (status: status, result: resultValue as? NSObject)
-
-        } else {
-            return (status: status, result: nil)
-        }
+        let resultValue: AnyObject? = result.memory?.takeRetainedValue()
+        
+        return (status: status, result: resultValue as? NSObject)
     }
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -27,13 +27,13 @@ class KeychainSwiftAPITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testAdd1() {
 
         let q = Keychain.Query()
         q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
         q.kSecAttrDescription = "This is a test description"
         q.kSecAttrGeneric = "Parol".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        q.kSecAttrAccount = "Try1 account2"
+        q.kSecAttrAccount = "Try1 account-" + rand().description
         q.kSecAttrLabel = "Try1 label"
         q.kSecReturnData = true
         q.kSecReturnAttributes = true
@@ -43,6 +43,8 @@ class KeychainSwiftAPITests: XCTestCase {
         q.kSecValueData = "Privet".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         
         let res1 = Keychain.secItemAdd(query: q)
+        XCTAssert(res1.status == Keychain.ResultCode.errSecSuccess, "Item added sucessfully")
+        
         println("Keychain secItemAdd returned: \(res1.status)")
         
         if let resUw = res1.result {
@@ -51,7 +53,13 @@ class KeychainSwiftAPITests: XCTestCase {
             println("res is nil")
         }
         
-        let res = Keychain.secItemCopyMatching(query:q)
+        let q2 = Keychain.Query()
+        q2.kSecAttrAccount = q.kSecAttrAccount
+        q2.kSecClass = q.kSecClass
+        
+        let res = Keychain.secItemCopyMatching(query:q2)
+        XCTAssert(res1.status == Keychain.ResultCode.errSecSuccess, "Item retrieved sucessfully")
+        
         println("Status of secItemCopyMatching: \(res.status.toRaw())")
         print("Result: ")
         if let r = res.result
@@ -63,9 +71,13 @@ class KeychainSwiftAPITests: XCTestCase {
         
         println(NSString(data: res.result as? NSData, encoding: NSUTF8StringEncoding))
         
-
+        XCTAssert(res1.result != nil, "Retreived result is not nil")
+        let resultDic = res1.result! as NSDictionary
         
-        XCTAssert(res.status == Keychain.ResultCode.errSecSuccess, "Pass")
+        XCTAssert(resultDic.objectForKey("acct").isEqual(q.kSecAttrAccount!), "Account of the retrieved item matches")
+        
+        
+        
     }
     
     func testPerformanceExample() {

@@ -56,13 +56,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KeychainSwiftAPITests/KeychainSwiftAPITests.swift"
-            timestampString = "428422722.826763"
+            timestampString = "428428424.643643"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "testExample()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "testAdd1()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KeychainSwiftAPI/KeychainSwiftAPI.swift"
+            timestampString = "428484390.090905"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1008"
+            endingLineNumber = "1008"
+            landmarkName = "secItemAdd(query:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KeychainSwiftAPITests.Keychain.secItemAdd (KeychainSwiftAPITests.Keychain.Type)(query : KeychainSwiftAPITests.Keychain.Query) -&gt; (status : KeychainSwiftAPITests.Keychain.ResultCode, result : Swift.Optional&lt;ObjectiveC.NSObject&gt;)"
+                  moduleName = "KeychainSwiftAPITests"
+                  urlString = "file:///Users/denis/Documents/iOSDevMac/Checkmarx/Marketing/KeychainSwiftAPI/KeychainSwiftAPI/KeychainSwiftAPI/KeychainSwiftAPI.swift"
+                  timestampString = "428488884.528994"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1008"
+                  endingLineNumber = "1008"
+                  offsetFromSymbolStart = "379">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KeychainSwiftAPI.Keychain.secItemAdd (KeychainSwiftAPI.Keychain.Type)(query : KeychainSwiftAPI.Keychain.Query) -&gt; (status : KeychainSwiftAPI.Keychain.ResultCode, result : Swift.Optional&lt;ObjectiveC.NSObject&gt;)"
+                  moduleName = "KeychainSwiftAPI"
+                  urlString = "file:///Users/denis/Documents/iOSDevMac/Checkmarx/Marketing/KeychainSwiftAPI/KeychainSwiftAPI/KeychainSwiftAPI/KeychainSwiftAPI.swift"
+                  timestampString = "428488884.543596"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1008"
+                  endingLineNumber = "1008"
+                  offsetFromSymbolStart = "379">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
