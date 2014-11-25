@@ -109,7 +109,7 @@ public class Keychain
         }
         private func kSecClassAddToDic(dic : NSMutableDictionary) {
             if let v = kSecClass {
-                dic.setObject(v.toRaw(), forKey: kSecClassKey)
+                dic.setObject(v.rawValue, forKey: kSecClassKey)
             }
         }
 
@@ -214,7 +214,7 @@ public class Keychain
         }
         private func kSecAttrAccessibleAddToDic(dic : NSMutableDictionary) {
             if let v = kSecAttrAccessible {
-                dic.setObject(v.toRaw(), forKey: kSecAttrAccessibleKey)
+                dic.setObject(v.rawValue, forKey: kSecAttrAccessibleKey)
             }
         }
         
@@ -369,7 +369,7 @@ public class Keychain
         }
         private func kSecAttrProtocolAddToDic(dic : NSMutableDictionary) {
             if let v = kSecAttrProtocol {
-                dic.setObject(v.toRaw(), forKey: kSecAttrProtocolKey)
+                dic.setObject(v.rawValue, forKey: kSecAttrProtocolKey)
             }
         }
 
@@ -389,7 +389,7 @@ public class Keychain
         }
         private func kSecAttrAuthenticationTypeAddToDic(dic : NSMutableDictionary) {
             if let v = kSecAttrAuthenticationType {
-                dic.setObject(v.toRaw(), forKey: kSecAttrAuthenticationTypeKey)
+                dic.setObject(v.rawValue, forKey: kSecAttrAuthenticationTypeKey)
             }
         }
 
@@ -480,7 +480,7 @@ public class Keychain
             if let v = kSecAttrCertificateType {
                 switch v {
                 case let .Standard(val):
-                        dic.setObject(NSNumber(unsignedInt: val.toRaw()), forKey: kSecAttrCertificateTypeKey)
+                        dic.setObject(NSNumber(unsignedInt: val.rawValue), forKey: kSecAttrCertificateTypeKey)
                 case let .Custom(val):
                         dic.setObject(NSNumber(unsignedInt: val), forKey: kSecAttrCertificateTypeKey)
                 }
@@ -512,7 +512,7 @@ public class Keychain
             if let v = kSecAttrCertificateEncoding {
                 switch v {
                 case let .Standard(val):
-                    dic.setObject(NSNumber(unsignedInt: val.toRaw()), forKey: kSecAttrCertificateEncodingKey)
+                    dic.setObject(NSNumber(unsignedInt: val.rawValue), forKey: kSecAttrCertificateEncodingKey)
                 case let .Custom(val):
                     dic.setObject(NSNumber(unsignedInt: val), forKey: kSecAttrCertificateEncodingKey)
                 }
@@ -530,7 +530,7 @@ public class Keychain
         }
         private func kSecAttrKeyClassAddToDic(dic : NSMutableDictionary) {
             if let v = kSecAttrKeyClass {
-                dic.setObject(v.toRaw(), forKey: kSecAttrKeyClassKey)
+                dic.setObject(v.rawValue, forKey: kSecAttrKeyClassKey)
             }
         }
        
@@ -685,7 +685,7 @@ public class Keychain
             if let v = kSecAttrKeyType {
                 switch v {
                 case let .Standard(val):
-                        dic.setObject(NSNumber(unsignedInt: val.toRaw()), forKey: kSecAttrKeyTypeKey)
+                        dic.setObject(NSNumber(unsignedInt: val.rawValue), forKey: kSecAttrKeyTypeKey)
                 case let .Custom(val):
                         dic.setObject(NSNumber(unsignedInt: val), forKey: kSecAttrKeyTypeKey)
                 }
