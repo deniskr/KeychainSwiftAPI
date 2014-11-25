@@ -546,7 +546,7 @@ public class Keychain
         public var kSecAttrIsPermanent : Bool? // NSNumber bool
         private let kSecAttrIsPermanentKey = "perm"
         private func kSecAttrIsPermanentAddToDic(dic : NSMutableDictionary) {
-            if kSecAttrIsPermanent {
+            if (kSecAttrIsPermanent != nil && kSecAttrIsPermanent!) {
                 dic.setObject(NSNumber(bool: true), forKey: kSecAttrIsPermanentKey)
             }
         }
@@ -554,7 +554,7 @@ public class Keychain
         
         public var kSecAttrApplicationTag : NSData?
         private let kSecAttrApplicationTagKey = "atag"
-         private func kSecAttrApplicationTagAddToDic(dic : NSMutableDictionary) {
+        private func kSecAttrApplicationTagAddToDic(dic : NSMutableDictionary) {
             if let v = kSecAttrApplicationTag {
                 dic.setObject(v, forKey: kSecAttrApplicationTagKey)
             }
@@ -711,7 +711,7 @@ public class Keychain
         public var kSecAttrCanEncrypt : Bool? // NSNumber
         private let kSecAttrCanEncryptKey = "encr" 
         private func kSecAttrCanEncryptAddToDic(dic : NSMutableDictionary) {
-            if kSecAttrCanEncrypt {
+            if (kSecAttrCanEncrypt != nil && kSecAttrCanEncrypt!) {
                 dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanEncryptKey)
             }
         }
@@ -720,16 +720,15 @@ public class Keychain
         public var kSecAttrCanDecrypt : Bool? // NSNumber
         private let kSecAttrCanDecryptKey = "decr" 
         private func kSecAttrCanDecryptAddToDic(dic : NSMutableDictionary) {
-            if kSecAttrCanDecrypt {
+            if kSecAttrCanDecrypt != nil && kSecAttrCanDecrypt! {
                 dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanDecryptKey)
             }
         }
-
         
         public var kSecAttrCanDerive : Bool? // NSNumber
         private let kSecAttrCanDeriveKey = "drve" 
         private func kSecAttrCanDeriveAddToDic(dic : NSMutableDictionary) {
-            if kSecAttrCanDerive {
+            if kSecAttrCanDerive != nil && kSecAttrCanDerive! {
                 dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanDeriveKey)
             }
         }
@@ -738,7 +737,7 @@ public class Keychain
         public var kSecAttrCanSign : Bool? // NSNumber
         private let kSecAttrCanSignKey = "sign" 
         private func kSecAttrCanSignAddToDic(dic : NSMutableDictionary) {
-            if kSecAttrCanSign {
+            if (kSecAttrCanSign != nil && kSecAttrCanSign!) {
                 dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanSignKey)
             }
         }
@@ -751,7 +750,7 @@ public class Keychain
         public var kSecAttrCanWrap : Bool? // NSNumber
         private let kSecAttrCanWrapKey = "wrap" 
         private func kSecAttrCanWrapAddToDic(dic : NSMutableDictionary) {
-            if kSecAttrCanWrap {
+            if (kSecAttrCanWrap != nil  && kSecAttrCanWrap!) {
                 dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanWrapKey)
             }
         }
@@ -760,7 +759,7 @@ public class Keychain
         public var kSecAttrCanUnwrap : Bool? // NSNumber
         private let kSecAttrCanUnwrapKey = "unwp" 
         private func kSecAttrCanUnwrapAddToDic(dic : NSMutableDictionary) {
-            if kSecAttrCanUnwrap {
+            if (kSecAttrCanUnwrap != nil && kSecAttrCanUnwrap!) {
                 dic.setObject(NSNumber(bool: true), forKey: kSecAttrCanUnwrapKey)
             }
         }
