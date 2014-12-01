@@ -33,7 +33,7 @@ class KeychainSwiftAPITests: XCTestCase {
         q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
         q.kSecAttrDescription = "This is a test description"
         q.kSecAttrGeneric = "Parol".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        q.kSecAttrAccount = "Try1 account-" + rand().description
+        q.kSecAttrAccount = "Try1 account-" + "104"
         q.kSecAttrLabel = "Try1 label"
         q.kSecReturnData = true
         q.kSecReturnAttributes = true
@@ -56,6 +56,7 @@ class KeychainSwiftAPITests: XCTestCase {
         let q2 = Keychain.Query()
         q2.kSecAttrAccount = q.kSecAttrAccount
         q2.kSecClass = q.kSecClass
+        q2.kSecReturnAttributes = true
         
         let res = Keychain.secItemCopyMatching(query:q2)
         XCTAssert(res1.status == Keychain.ResultCode.errSecSuccess, "Item retrieved sucessfully")
@@ -69,12 +70,14 @@ class KeychainSwiftAPITests: XCTestCase {
             println("nil")
         }
         
-        println(NSString(data: res.result as? NSData, encoding: NSUTF8StringEncoding))
+        let uwResult = res.result! as NSObject
+        println(uwResult)
+        //println(NSString(data: res.result! as NSData , encoding: NSUTF8StringEncoding))
         
         XCTAssert(res1.result != nil, "Retreived result is not nil")
         let resultDic = res1.result! as NSDictionary
         
-        XCTAssert(resultDic.objectForKey("acct").isEqual(q.kSecAttrAccount!), "Account of the retrieved item matches")
+        XCTAssert(resultDic.objectForKey("acct")!.isEqual(q.kSecAttrAccount!), "Account of the retrieved item matches")
         
         
         

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920E5BDF1A25DDC400117929 /* CXKeychainHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 920E5BDD1A25DDC400117929 /* CXKeychainHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		920E5BE01A25DDC400117929 /* CXKeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 920E5BDE1A25DDC400117929 /* CXKeychainHelper.m */; };
+		920E5BE21A25DF0200117929 /* KeychainSwiftAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 920E5BE11A25DF0200117929 /* KeychainSwiftAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		921AA8C41986401300A2C240 /* KeychainSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */; };
-		929005D4197EA27800D49D3D /* KeychainSwiftAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 929005D3197EA27800D49D3D /* KeychainSwiftAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		929005DA197EA27800D49D3D /* KeychainSwiftAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929005CE197EA27800D49D3D /* KeychainSwiftAPI.framework */; };
 		929005E1197EA27800D49D3D /* KeychainSwiftAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005E0197EA27800D49D3D /* KeychainSwiftAPITests.swift */; };
 		929005EB197EA32300D49D3D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929005EA197EA32300D49D3D /* Security.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -29,9 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		920E5BDD1A25DDC400117929 /* CXKeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXKeychainHelper.h; sourceTree = "<group>"; };
+		920E5BDE1A25DDC400117929 /* CXKeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXKeychainHelper.m; sourceTree = "<group>"; };
+		920E5BE11A25DF0200117929 /* KeychainSwiftAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainSwiftAPI.h; sourceTree = "<group>"; };
+		9228C7991A25D158007CD465 /* Test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Test.playground; sourceTree = "<group>"; };
 		929005CE197EA27800D49D3D /* KeychainSwiftAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainSwiftAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		929005D2197EA27800D49D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		929005D3197EA27800D49D3D /* KeychainSwiftAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainSwiftAPI.h; sourceTree = "<group>"; };
 		929005D9197EA27800D49D3D /* KeychainSwiftAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainSwiftAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		929005DF197EA27800D49D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		929005E0197EA27800D49D3D /* KeychainSwiftAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftAPITests.swift; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 		929005C4197EA27800D49D3D = {
 			isa = PBXGroup;
 			children = (
+				9228C7991A25D158007CD465 /* Test.playground */,
 				929005D0197EA27800D49D3D /* KeychainSwiftAPI */,
 				929005DD197EA27800D49D3D /* KeychainSwiftAPITests */,
 				929005CF197EA27800D49D3D /* Products */,
@@ -83,8 +89,10 @@
 		929005D0197EA27800D49D3D /* KeychainSwiftAPI */ = {
 			isa = PBXGroup;
 			children = (
+				920E5BE11A25DF0200117929 /* KeychainSwiftAPI.h */,
 				929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */,
-				929005D3197EA27800D49D3D /* KeychainSwiftAPI.h */,
+				920E5BDD1A25DDC400117929 /* CXKeychainHelper.h */,
+				920E5BDE1A25DDC400117929 /* CXKeychainHelper.m */,
 				929005D1197EA27800D49D3D /* Supporting Files */,
 				92C714FE1980FBD0006D29AD /* Frameworks */,
 				92C714FD1980FBC0006D29AD /* Pod */,
@@ -142,7 +150,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				929005D4197EA27800D49D3D /* KeychainSwiftAPI.h in Headers */,
+				920E5BDF1A25DDC400117929 /* CXKeychainHelper.h in Headers */,
+				920E5BE21A25DF0200117929 /* KeychainSwiftAPI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +257,7 @@
 			files = (
 				92C7150419810454006D29AD /* README.md in Sources */,
 				929005ED197EA43500D49D3D /* KeychainSwiftAPI.swift in Sources */,
+				920E5BE01A25DDC400117929 /* CXKeychainHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -291,6 +302,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -306,10 +318,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos8.1;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -338,6 +351,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -347,9 +361,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos8.1;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";

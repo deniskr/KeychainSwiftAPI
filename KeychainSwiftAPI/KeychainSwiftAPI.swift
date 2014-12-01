@@ -8,15 +8,23 @@
 
 import Foundation
 import Security
+import KeychainSwiftAPI
 
-public func ==(a:Keychain.ResultCode, b:Keychain.ResultCode) -> Bool
+public func == (left:Keychain.ResultCode, right:Keychain.ResultCode) -> Bool
 {
-    return a.toRaw() == b.toRaw()
+    return left.toRaw() == right.toRaw()
+}
+
+public func != (left:Keychain.ResultCode, right:Keychain.ResultCode) -> Bool {
+    return !(left == right)
 }
 
 public class Keychain
 {
-    
+    /**
+    A Swift style wrapper of OSStatus result codes that can be returned from KeyChain functions.
+    */
+
     public enum ResultCode : Printable {
         case errSecSuccess                //  = 0        // No error.
         case errSecUnimplemented          //  = -4       // Function or operation not implemented.
@@ -85,9 +93,14 @@ public class Keychain
         
     }
     
+    /**
 
-
+    A Swift style wrapper of KeyChain attributes dictionary. Class property names correspond to attribute keys,
+    property values correspond to attribute values. All properties are of optional type. When a prerty is nil, 
+    the corresponding key-value pair will not be added to the attributes dictionary.
     
+    For a description of key-value pairs see the documentation of Keychain API.
+    */
 
     public class Query {
         public init(){}
@@ -989,48 +1002,63 @@ public class Keychain
         }
     }
     
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // secItemAdd
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+    A Swift wrapper of OSStatus SecItemAdd(CFDictionaryRef attributes,CFTypeRef *result) C function.
+    
+    :param: query An object wrapping a CFDictionaryRef with attributes
+    :returns: A pair containing the result code and an NSObject that was returned in the result parameter of SecItemAdd call.
+    
+    */
     
     public class func secItemAdd(#query : Query) -> (status: ResultCode, result: NSObject?) {
 
         let dic = query.toNSDictionary()
-        let result = UnsafePointer<Unmanaged<AnyObject>?>.alloc(1)
-        let statusRaw = SecItemAdd(dic,result)
-        let status = ResultCode.fromRaw(statusRaw)
+        //let result = UnsafeMutablePointer<Unmanaged<AnyObject>?>.alloc(1)
+
+        //@availability(iOS, introduced=2.0)
+        //func SecItemAdd(attributes: CFDictionary!, result: UnsafeMutablePointer<Unmanaged<AnyObject>?>) -> OSStatus
+ 
+        let resultAndStatus = CXKeychainHelper.secItemAddCaller(query.toNSDictionary())
+        let status = ResultCode.fromRaw(resultAndStatus.status)
         
-        if status == .errSecSuccess {
-            
-            // This cast is done to avoid compiler crash in XCode6-beta4
-            let resultCasted = UnsafePointer<AnyObject?>(result)
-            let resultValue : AnyObject? = resultCasted.memory
-            return (status: status, result: resultValue as? NSObject)
-        } else {
-            return (status: status, result: nil)
-        }
+        return (status: status, result: resultAndStatus.result)
+        
         
     }
     
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // secItemCopyMatching
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-   
+    /**
+    A Swift wrapper of OSStatus SecItemCopyMatching(CFDictionaryRef query, CFTypeRef *result) C function.
+    
+    :param: query An object wrapping a CFDictionaryRef with query
+    :returns: A pair containing the result code and an NSObject that was returned in the result parameter of SecItemCopyMatching call.
+    
+    */
     public class func secItemCopyMatching(#query : Query) -> (status: ResultCode, result: NSObject?)
     {
-        let dic : NSDictionary = query.toNSDictionary()
-        let result = UnsafePointer<Unmanaged<AnyObject>?>.alloc(1)
-        let statusRaw : OSStatus = SecItemCopyMatching(dic, result)
-        let status = ResultCode.fromRaw(statusRaw)
-        let resultValue: AnyObject? = result.memory?.takeRetainedValue()
         
-        return (status: status, result: resultValue as? NSObject)
+        let dic : NSDictionary = query.toNSDictionary()
+        //let result = UnsafeMutablePointer<Unmanaged<AnyObject>?>.alloc(1)
+        //result.initialize(nil)
+        //@availability(iOS, introduced=2.0)
+        //func SecItemCopyMatching(query: CFDictionary!, result: UnsafeMutablePointer<Unmanaged<AnyObject>?>) -> OSStatus
+
+        //let statusRaw : OSStatus = SecItemCopyMatching(dic, result)
+        //let status = ResultCode.fromRaw(statusRaw)
+        //let resultValue: AnyObject? = result.memory?.takeRetainedValue()
+        
+        let resultAndStatus = CXKeychainHelper.secItemCopyMatchingCaller(dic)
+        
+        return (status: ResultCode.fromRaw(resultAndStatus.status), result: resultAndStatus.result)
+
     }
     
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // secItemDelete
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+    A Swift wrapper of OSStatus SecItemDelete(CFDictionaryRef query) C function.
+    
+    :param: query An object wrapping a CFDictionaryRef with query
+    :returns: A result code.
+    
+    */
     
     public class func secItemDelete(#query : Query) -> ResultCode
     {
@@ -1039,11 +1067,14 @@ public class Keychain
         return status
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // secItemUpdate
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+    A Swift wrapper of OSStatus SecItemUpdate(CFDictionaryRef query, CFDictionaryRef attributesToUpdate) C function.
     
+    :param: query An object wrapping a CFDictionaryRef with query
+    :param: attributesToUpdate An object wrapping a CFDictionaryRef with attributesToUpdate
+    :returns: A result code.
     
+    */
     public class func secItemUpdate(#query : Query, #attributesToUpdate : Query) -> ResultCode
     {
         let statusRaw = SecItemUpdate(query.toNSDictionary(),attributesToUpdate.toNSDictionary())
