@@ -1010,20 +1010,12 @@ public class Keychain
     
     */
     
-    public class func secItemAdd(#query : Query) -> (status: ResultCode, result: NSObject?) {
-
+    public class func secItemAdd(#query : Query) -> (status: ResultCode, result: NSObject?)
+    {
         let dic = query.toNSDictionary()
-        //let result = UnsafeMutablePointer<Unmanaged<AnyObject>?>.alloc(1)
-
-        //@availability(iOS, introduced=2.0)
-        //func SecItemAdd(attributes: CFDictionary!, result: UnsafeMutablePointer<Unmanaged<AnyObject>?>) -> OSStatus
- 
         let resultAndStatus = CXKeychainHelper.secItemAddCaller(query.toNSDictionary())
         let status = ResultCode.fromRaw(resultAndStatus.status)
-        
         return (status: status, result: resultAndStatus.result)
-        
-        
     }
     
     /**
@@ -1035,21 +1027,9 @@ public class Keychain
     */
     public class func secItemCopyMatching(#query : Query) -> (status: ResultCode, result: NSObject?)
     {
-        
         let dic : NSDictionary = query.toNSDictionary()
-        //let result = UnsafeMutablePointer<Unmanaged<AnyObject>?>.alloc(1)
-        //result.initialize(nil)
-        //@availability(iOS, introduced=2.0)
-        //func SecItemCopyMatching(query: CFDictionary!, result: UnsafeMutablePointer<Unmanaged<AnyObject>?>) -> OSStatus
-
-        //let statusRaw : OSStatus = SecItemCopyMatching(dic, result)
-        //let status = ResultCode.fromRaw(statusRaw)
-        //let resultValue: AnyObject? = result.memory?.takeRetainedValue()
-        
         let resultAndStatus = CXKeychainHelper.secItemCopyMatchingCaller(dic)
-        
         return (status: ResultCode.fromRaw(resultAndStatus.status), result: resultAndStatus.result)
-
     }
     
     /**
