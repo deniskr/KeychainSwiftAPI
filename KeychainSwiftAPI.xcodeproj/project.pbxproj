@@ -11,12 +11,12 @@
 		920E5BE01A25DDC400117929 /* CXKeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 920E5BDE1A25DDC400117929 /* CXKeychainHelper.m */; };
 		920E5BE21A25DF0200117929 /* KeychainSwiftAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 920E5BE11A25DF0200117929 /* KeychainSwiftAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		921AA8C41986401300A2C240 /* KeychainSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */; };
+		925D6F341A2CA9F2009DF263 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 92C7150319810454006D29AD /* README.md */; };
 		929005DA197EA27800D49D3D /* KeychainSwiftAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929005CE197EA27800D49D3D /* KeychainSwiftAPI.framework */; };
 		929005E1197EA27800D49D3D /* KeychainSwiftAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005E0197EA27800D49D3D /* KeychainSwiftAPITests.swift */; };
 		929005EB197EA32300D49D3D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 929005EA197EA32300D49D3D /* Security.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		929005ED197EA43500D49D3D /* KeychainSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929005EC197EA43500D49D3D /* KeychainSwiftAPI.swift */; };
 		92C714FC1980FBBA006D29AD /* KeychainSwiftAPI.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 92C714FB1980FBBA006D29AD /* KeychainSwiftAPI.podspec */; };
-		92C7150419810454006D29AD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 92C7150319810454006D29AD /* README.md */; };
 		92C715061981064F006D29AD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 92C715051981064F006D29AD /* LICENSE */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925D6F341A2CA9F2009DF263 /* README.md in Resources */,
 				92C715061981064F006D29AD /* LICENSE in Resources */,
 				92C714FC1980FBBA006D29AD /* KeychainSwiftAPI.podspec in Resources */,
 			);
@@ -255,7 +256,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92C7150419810454006D29AD /* README.md in Sources */,
 				929005ED197EA43500D49D3D /* KeychainSwiftAPI.swift in Sources */,
 				920E5BE01A25DDC400117929 /* CXKeychainHelper.m in Sources */,
 			);
@@ -376,6 +376,11 @@
 		929005E5197EA27800D49D3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+				);
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -384,7 +389,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KeychainSwiftAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -396,6 +401,11 @@
 		929005E6197EA27800D49D3D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					arm64,
+					armv7,
+					armv7s,
+				);
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -404,7 +414,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KeychainSwiftAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
