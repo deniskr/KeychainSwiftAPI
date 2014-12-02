@@ -1,0 +1,14 @@
+PODS:
+  - KeychainSwiftAPI (0.1.0)
+
+DEPENDENCIES:
+  - KeychainSwiftAPI (from `../`)
+
+EXTERNAL SOURCES:
+  KeychainSwiftAPI:
+    :path: ../
+
+SPEC CHECKSUMS:
+  KeychainSwiftAPI: c3d329f4a25119ef0cd3cfac1737d920635d9abc
+
+COCOAPODS: 0.35.0
