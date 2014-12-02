@@ -8,7 +8,6 @@
 
 import Foundation
 import Security
-import KeychainSwiftAPI
 
 public func == (left:Keychain.ResultCode, right:Keychain.ResultCode) -> Bool
 {
