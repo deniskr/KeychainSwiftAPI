@@ -17,4 +17,4 @@ FOUNDATION_EXPORT const unsigned char KeychainSwiftAPIVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <KeychainSwiftAPI/PublicHeader.h>
 
-#import <KeychainSwiftAPI/CXKeychainHelper.h>
+#import "CXKeychainHelper.h"

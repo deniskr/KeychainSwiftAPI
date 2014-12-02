@@ -49,8 +49,8 @@
 		7D8D052746ABA8EAA6AC4CB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		87E0C8CE5877AFA7EBD3AF17 /* KeychainSwiftAPI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainSwiftAPI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E32DDAAC2B7115BAE4AD83A /* Pods-KeychainSwiftAPI-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KeychainSwiftAPI-acknowledgements.plist"; sourceTree = "<group>"; };
-		92F961471A2DE63D00C89AF9 /* Pods-KeychainSwiftAPI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-KeychainSwiftAPI-Bridging-Header.h"; sourceTree = "<group>"; };
-		92F961481A2DE63D00C89AF9 /* Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h"; sourceTree = "<group>"; };
+		9279891B1A2DFB1500A5643F /* Pods-KeychainSwiftAPI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Pods-KeychainSwiftAPI-Bridging-Header.h"; path = "Pod/Classes/Pods-KeychainSwiftAPI-Bridging-Header.h"; sourceTree = "<group>"; };
+		9279891C1A2DFB1500A5643F /* Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h"; path = "Pod/Classes/Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h"; sourceTree = "<group>"; };
 		92F961491A2DE63E00C89AF9 /* CXKeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXKeychainHelper.h; path = Pod/Classes/CXKeychainHelper.h; sourceTree = "<group>"; };
 		92F9614A1A2DE63E00C89AF9 /* CXKeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXKeychainHelper.m; path = Pod/Classes/CXKeychainHelper.m; sourceTree = "<group>"; };
 		92F9614B1A2DE63E00C89AF9 /* KeychainSwiftAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainSwiftAPI.h; path = Pod/Classes/KeychainSwiftAPI.h; sourceTree = "<group>"; };
@@ -95,13 +95,13 @@
 		0FFF4BEB8D86886CDC041B44 /* KeychainSwiftAPI */ = {
 			isa = PBXGroup;
 			children = (
+				9279891B1A2DFB1500A5643F /* Pods-KeychainSwiftAPI-Bridging-Header.h */,
+				9279891C1A2DFB1500A5643F /* Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h */,
 				92F961491A2DE63E00C89AF9 /* CXKeychainHelper.h */,
 				92F9614A1A2DE63E00C89AF9 /* CXKeychainHelper.m */,
 				92F9614B1A2DE63E00C89AF9 /* KeychainSwiftAPI.h */,
 				92F9614C1A2DE63E00C89AF9 /* KeychainSwiftAPI.swift */,
 				8B3AACBFCCE2F266C1F757B0 /* Support Files */,
-				92F961471A2DE63D00C89AF9 /* Pods-KeychainSwiftAPI-Bridging-Header.h */,
-				92F961481A2DE63D00C89AF9 /* Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h */,
 			);
 			name = KeychainSwiftAPI;
 			path = ../..;
@@ -390,6 +390,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pod/Classes/Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -460,6 +461,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Pod/Classes/Pods-KeychainSwiftAPI-KeychainSwiftAPI-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
