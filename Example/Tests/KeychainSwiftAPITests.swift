@@ -8,7 +8,6 @@
 
 import UIKit
 import XCTest
-import KeychainSwiftAPI
 import Security
 
 class KeychainSwiftAPITests: XCTestCase {
@@ -77,6 +76,27 @@ class KeychainSwiftAPITests: XCTestCase {
             }
         }
         
+    }
+    
+    func textUseageExample()
+    {
+        let q = Keychain.Query()
+        q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
+        q.kSecAttrDescription = "A password from my website"
+        q.kSecAttrGeneric = "VerySecurePassword".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        q.kSecAttrAccount = "admin"
+        q.kSecReturnData = true
+        q.kSecReturnAttributes = true
+        q.kSecReturnRef = true
+        q.kSecReturnPersistentRef = true
+
+        let r = Keychain.secItemAdd(query: q)
+        if (r.status == Keychain.ResultCode.errSecSuccess) {
+            println("ok")
+        } else {
+            println("Error saving password: \(r.status.description)")
+        }
+
     }
     
     func testPerformanceExample() {

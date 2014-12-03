@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D364451A3AA7ECE6118898D /* Pods-KeychainSwiftAPI-KeychainSwiftAPI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD955D574700C153BABE71BD /* Pods-KeychainSwiftAPI-KeychainSwiftAPI-dummy.m */; };
 		51085A443A7C70BA3600D377 /* Pods-KeychainSwiftAPI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46242E8B1E2C0BAD6218A383 /* Pods-KeychainSwiftAPI-dummy.m */; };
+		92E3DA951A2F54C8003500F0 /* KeychainSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9614C1A2DE63E00C89AF9 /* KeychainSwiftAPI.swift */; };
 		92F9614D1A2DE63E00C89AF9 /* CXKeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F9614A1A2DE63E00C89AF9 /* CXKeychainHelper.m */; };
 		92F9614E1A2DE63E00C89AF9 /* CXKeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F9614A1A2DE63E00C89AF9 /* CXKeychainHelper.m */; };
 		92F9614F1A2DE63E00C89AF9 /* KeychainSwiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9614C1A2DE63E00C89AF9 /* KeychainSwiftAPI.swift */; };
@@ -301,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E3DA951A2F54C8003500F0 /* KeychainSwiftAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
