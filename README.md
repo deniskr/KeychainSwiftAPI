@@ -9,16 +9,20 @@ library is written according to the best security coding practices and guideline
 ## Usage
 
 Import the KeychainSwiftAPI
+
 <code>
 		import KeychainSwiftAPI
 </code>
 
 Create a query object:
+
 <code>	
 		let q = Keychain.Query()
 </code>
+
 Populate the query object with data. Query properties correspond to attribute keys of the C Keychain API, 
 protery values correspond to attribute values of the C Keychain API. 
+
 <code>
 		q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
         q.kSecAttrDescription = "A password from my website"
@@ -29,11 +33,15 @@ protery values correspond to attribute values of the C Keychain API.
         q.kSecReturnRef = true
         q.kSecReturnPersistentRef = true
 </code>
+
 Call Keychain.secItemAdd, which returns a pair of success code and result object. 
+
 <code>
         let r = Keychain.secItemAdd(query: q)
 </code>
+
 Success code is wrapped in Keychain.ResultCode enum for convenience.
+
 <code>
         if (r.status == Keychain.ResultCode.errSecSuccess) {
             println("Password saved. Returned object: \(r.result)")
@@ -41,6 +49,7 @@ Success code is wrapped in Keychain.ResultCode enum for convenience.
             println("Error saving password: \(r.status.description)")
         }
 </code>
+
 r.result contains the object that was retured by the C SecItemAdd underlying function call.
 
 
