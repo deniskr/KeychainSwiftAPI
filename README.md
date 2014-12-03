@@ -8,9 +8,13 @@ library is written according to the best security coding practices and guideline
 
 ## Usage
 
+Import the KeychainSwiftAPI
+<code>
+		import KeychainSwiftAPI
+</code>
+
 Create a query object:
 <code>	
-
 		let q = Keychain.Query()
 </code>
 Populate the query object with data. Query properties correspond to attribute keys of the C Keychain API, 
@@ -37,12 +41,14 @@ Success code is wrapped in Keychain.ResultCode enum for convenience.
             println("Error saving password: \(r.status.description)")
         }
 </code>
-r.result contains the object that was retured by the C SecItemAdd underlying function call. 
+r.result contains the object that was retured by the C SecItemAdd underlying function call.
 
 
 ## Requirements
 
 iOS 8.0 or above
+You have to use cocoapod compiled from the Swift branch, since the master branch of cocoapods still does not fully support Swift. 
+See: [Using Cocoapods Unreleased Features](http://guides.cocoapods.org/using/unreleased-features)
 
 ## Installation
 
