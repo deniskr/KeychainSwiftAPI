@@ -7,10 +7,16 @@ Swift, and is prone to errors which lead to security vulnerabilities. This
 library is written according to the best security coding practices and guidelines.
 
 ## Usage
-<code>
-		
+
+Create a query object:
+<code>	
+
 		let q = Keychain.Query()
-        q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
+</code>
+Populate the query object with data. Query properties correspond to attribute keys of the C Keychain API, 
+protery values correspond to attribute values of the C Keychain API. 
+<code>
+		q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
         q.kSecAttrDescription = "A password from my website"
         q.kSecAttrGeneric = "VerySecurePassword".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         q.kSecAttrAccount = "admin"
@@ -18,16 +24,25 @@ library is written according to the best security coding practices and guideline
         q.kSecReturnAttributes = true
         q.kSecReturnRef = true
         q.kSecReturnPersistentRef = true
-
+</code>
+Call Keychain.secItemAdd, which returns a pair of success code and result object. 
+<code>
         let r = Keychain.secItemAdd(query: q)
+</code>
+Success code is wrapped in Keychain.ResultCode enum for convenience.
+<code>
         if (r.status == Keychain.ResultCode.errSecSuccess) {
-            println("ok")
+            println("Password saved. Returned object: \(r.result)")
         } else {
             println("Error saving password: \(r.status.description)")
         }
 </code>
+r.result contains the object that was retured by the C SecItemAdd underlying function call. 
+
 
 ## Requirements
+
+iOS 8.0 or above
 
 ## Installation
 

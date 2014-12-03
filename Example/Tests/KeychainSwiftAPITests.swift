@@ -92,7 +92,7 @@ class KeychainSwiftAPITests: XCTestCase {
 
         let r = Keychain.secItemAdd(query: q)
         if (r.status == Keychain.ResultCode.errSecSuccess) {
-            println("ok")
+            println("Password saved. Returned object: \(r.result)")
         } else {
             println("Error saving password: \(r.status.description)")
         }
