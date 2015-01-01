@@ -1054,7 +1054,7 @@ public class Keychain
     :returns: A result code.
     
     */
-    public class func secItemUpdate(#query : Query, #attributesToUpdate : Query) -> ResultCode
+    public class func secItemUpdate(#query : Query, attributesToUpdate : Query) -> ResultCode
     {
         let statusRaw = SecItemUpdate(query.toNSDictionary(),attributesToUpdate.toNSDictionary())
         let status = ResultCode.fromRaw(statusRaw)
