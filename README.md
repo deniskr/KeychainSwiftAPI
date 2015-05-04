@@ -9,51 +9,44 @@ library is written according to the best security coding practices and guideline
 ## Usage
 
 Import the KeychainSwiftAPI
-
-<code>
-	
-		import KeychainSwiftAPI
-</code>
+```swift
+import KeychainSwiftAPI
+```
 
 Create a query object:
-
-<code>
-		
-		let q = Keychain.Query()
-</code>
+```swift	
+let q = Keychain.Query()
+```
 
 Populate the query object with data. Query properties correspond to attribute keys of the C Keychain API, 
 protery values correspond to attribute values of the C Keychain API. 
 
-<code>
-	
-		q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
-        q.kSecAttrDescription = "A password from my website"
-        q.kSecAttrGeneric = "VerySecurePassword".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        q.kSecAttrAccount = "admin"
-        q.kSecReturnData = true
-        q.kSecReturnAttributes = true
-        q.kSecReturnRef = true
-        q.kSecReturnPersistentRef = true
-</code>
+```swift
+q.kSecClass = Keychain.Query.KSecClassValue.kSecClassGenericPassword
+q.kSecAttrDescription = "A password from my website"
+q.kSecAttrGeneric = "VerySecurePassword".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+q.kSecAttrAccount = "admin"
+q.kSecReturnData = true
+q.kSecReturnAttributes = true
+q.kSecReturnRef = true
+q.kSecReturnPersistentRef = true
+```
 
 Call Keychain.secItemAdd, which returns a pair of success code and result object. 
 
-<code>
-	
-        let r = Keychain.secItemAdd(query: q)
-</code>
+```
+let r = Keychain.secItemAdd(query: q)
+```
 
 Success code is wrapped in Keychain.ResultCode enum for convenience.
 
-<code>
-	
-        if (r.status == Keychain.ResultCode.errSecSuccess) {
-            println("Password saved. Returned object: \(r.result)")
-        } else {
-            println("Error saving password: \(r.status.description)")
-        }
-</code>
+```
+if (r.status == Keychain.ResultCode.errSecSuccess) {
+    println("Password saved. Returned object: \(r.result)")
+} else {
+    println("Error saving password: \(r.status.description)")
+}
+```
 
 r.result contains the object that was retured by the C SecItemAdd underlying function call.
 
@@ -69,7 +62,9 @@ See: [Using Cocoapods Unreleased Features](http://guides.cocoapods.org/using/unr
 KeychainSwiftAPI is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-    pod "KeychainSwiftAPI"
+```ruby
+pod "KeychainSwiftAPI"
+```
 
 ## Author
 
