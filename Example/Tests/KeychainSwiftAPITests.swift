@@ -9,6 +9,7 @@
 import UIKit
 import XCTest
 import Security
+import KeychainSwiftAPI
 
 class KeychainSwiftAPITests: XCTestCase {
     

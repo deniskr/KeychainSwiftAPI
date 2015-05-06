@@ -1,8 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 
-target 'KeychainSwiftAPI', :exclusive => true do
+target 'KeychainSwiftAPITests', :exclusive => true do
+  use_frameworks!
   pod "KeychainSwiftAPI", :path => "../"
-
   
 end

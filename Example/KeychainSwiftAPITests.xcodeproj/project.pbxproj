@@ -7,24 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
-		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
-		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
-		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		92E3DA941A2F53AE003500F0 /* KeychainSwiftAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3DA931A2F53AE003500F0 /* KeychainSwiftAPITests.swift */; };
-		E335FEB8D0E9DB81C3314C3C /* libPods-KeychainSwiftAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E555C6EC3C382E30A75D03E /* libPods-KeychainSwiftAPI.a */; };
+		411D93F91AFA53B000BE6DF9 /* KeychainSwiftAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411D93F81AFA53B000BE6DF9 /* KeychainSwiftAPITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AE8929692B3246C67746A4B /* Pods-KeychainSwiftAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeychainSwiftAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeychainSwiftAPITests/Pods-KeychainSwiftAPITests.release.xcconfig"; sourceTree = "<group>"; };
 		17650720A46A332ECC6EF403 /* KeychainSwiftAPI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KeychainSwiftAPI.podspec; path = ../KeychainSwiftAPI.podspec; sourceTree = "<group>"; };
 		3406DD15FC72D609C13F15A1 /* Pods-KeychainSwiftAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeychainSwiftAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeychainSwiftAPI/Pods-KeychainSwiftAPI.release.xcconfig"; sourceTree = "<group>"; };
-		5E555C6EC3C382E30A75D03E /* libPods-KeychainSwiftAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KeychainSwiftAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		411D93F41AFA53B000BE6DF9 /* KeychainSwiftAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainSwiftAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		411D93F71AFA53B000BE6DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		411D93F81AFA53B000BE6DF9 /* KeychainSwiftAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwiftAPITests.swift; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* KeychainSwiftAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeychainSwiftAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F5AE195388D20070C39A /* KeychainSwiftAPI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainSwiftAPI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -33,19 +29,18 @@
 		7DCDCD3D0746D08F8617A3D5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		92E3DA921A2F53AD003500F0 /* KeychainSwiftAPI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KeychainSwiftAPI-Bridging-Header.h"; sourceTree = "<group>"; };
 		92E3DA931A2F53AE003500F0 /* KeychainSwiftAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftAPITests.swift; sourceTree = "<group>"; };
+		B4B6299F9E11FD234E5987F4 /* Pods-KeychainSwiftAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeychainSwiftAPITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeychainSwiftAPITests/Pods-KeychainSwiftAPITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0936045EBF743D6046802D6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C7EAE0117701733D1433D64A /* Pods_KeychainSwiftAPITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeychainSwiftAPITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2D6E63C3846A1A43D6E407 /* Pods_KeychainSwiftAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeychainSwiftAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA38716CE2CB274867358844 /* Pods-KeychainSwiftAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeychainSwiftAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeychainSwiftAPI/Pods-KeychainSwiftAPI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6003F5AB195388D20070C39A /* Frameworks */ = {
+		411D93F11AFA53B000BE6DF9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
-				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
-				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				E335FEB8D0E9DB81C3314C3C /* libPods-KeychainSwiftAPI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,8 +52,27 @@
 			children = (
 				FA38716CE2CB274867358844 /* Pods-KeychainSwiftAPI.debug.xcconfig */,
 				3406DD15FC72D609C13F15A1 /* Pods-KeychainSwiftAPI.release.xcconfig */,
+				B4B6299F9E11FD234E5987F4 /* Pods-KeychainSwiftAPITests.debug.xcconfig */,
+				0AE8929692B3246C67746A4B /* Pods-KeychainSwiftAPITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		411D93F51AFA53B000BE6DF9 /* KeychainSwiftAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				411D93F81AFA53B000BE6DF9 /* KeychainSwiftAPITests.swift */,
+				411D93F61AFA53B000BE6DF9 /* Supporting Files */,
+			);
+			path = KeychainSwiftAPITests;
+			sourceTree = "<group>";
+		};
+		411D93F61AFA53B000BE6DF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				411D93F71AFA53B000BE6DF9 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
@@ -66,6 +80,7 @@
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F5B5195388D20070C39A /* Tests */,
+				411D93F51AFA53B000BE6DF9 /* KeychainSwiftAPITests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				29FC30F948EA9C407D9AB0F5 /* Pods */,
@@ -76,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				6003F58A195388D20070C39A /* KeychainSwiftAPI.app */,
-				6003F5AE195388D20070C39A /* KeychainSwiftAPI.xctest */,
+				411D93F41AFA53B000BE6DF9 /* KeychainSwiftAPITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,7 +103,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				5E555C6EC3C382E30A75D03E /* libPods-KeychainSwiftAPI.a */,
+				EC2D6E63C3846A1A43D6E407 /* Pods_KeychainSwiftAPI.framework */,
+				C7EAE0117701733D1433D64A /* Pods_KeychainSwiftAPITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,23 +143,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F5AD195388D20070C39A /* KeychainSwiftAPI */ = {
+		411D93F31AFA53B000BE6DF9 /* KeychainSwiftAPITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "KeychainSwiftAPI" */;
+			buildConfigurationList = 411D93FA1AFA53B000BE6DF9 /* Build configuration list for PBXNativeTarget "KeychainSwiftAPITests" */;
 			buildPhases = (
-				1615A226A0A75F5B54CA547B /* Check Pods Manifest.lock */,
-				6003F5AA195388D20070C39A /* Sources */,
-				6003F5AB195388D20070C39A /* Frameworks */,
-				6003F5AC195388D20070C39A /* Resources */,
-				CED381D7F4270429F6B0E26A /* Copy Pods Resources */,
+				411D93F01AFA53B000BE6DF9 /* Sources */,
+				411D93F11AFA53B000BE6DF9 /* Frameworks */,
+				411D93F21AFA53B000BE6DF9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = KeychainSwiftAPI;
+			name = KeychainSwiftAPITests;
 			productName = KeychainSwiftAPITests;
-			productReference = 6003F5AE195388D20070C39A /* KeychainSwiftAPI.xctest */;
+			productReference = 411D93F41AFA53B000BE6DF9 /* KeychainSwiftAPITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -156,12 +170,12 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Denis Krivitski";
 				TargetAttributes = {
-					6003F5AD195388D20070C39A = {
-						TestTargetID = 6003F589195388D20070C39A;
+					411D93F31AFA53B000BE6DF9 = {
+						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "KeychainSwiftAPI" */;
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "KeychainSwiftAPITests" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -174,62 +188,27 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F5AD195388D20070C39A /* KeychainSwiftAPI */,
+				411D93F31AFA53B000BE6DF9 /* KeychainSwiftAPITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6003F5AC195388D20070C39A /* Resources */ = {
+		411D93F21AFA53B000BE6DF9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1615A226A0A75F5B54CA547B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CED381D7F4270429F6B0E26A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeychainSwiftAPI/Pods-KeychainSwiftAPI-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		6003F5AA195388D20070C39A /* Sources */ = {
+		411D93F01AFA53B000BE6DF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E3DA941A2F53AE003500F0 /* KeychainSwiftAPITests.swift in Sources */,
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				411D93F91AFA53B000BE6DF9 /* KeychainSwiftAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +226,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		411D93FB1AFA53B000BE6DF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KeychainSwiftAPITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		411D93FC1AFA53B000BE6DF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = KeychainSwiftAPITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -279,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -312,77 +335,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		6003F5C3195388D20070C39A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA38716CE2CB274867358844 /* Pods-KeychainSwiftAPI.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/KeychainSwiftAPI-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		6003F5C4195388D20070C39A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3406DD15FC72D609C13F15A1 /* Pods-KeychainSwiftAPI.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/KeychainSwiftAPI-Bridging-Header.h";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6003F585195388D10070C39A /* Build configuration list for PBXProject "KeychainSwiftAPI" */ = {
+		411D93FA1AFA53B000BE6DF9 /* Build configuration list for PBXNativeTarget "KeychainSwiftAPITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				411D93FB1AFA53B000BE6DF9 /* Debug */,
+				411D93FC1AFA53B000BE6DF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "KeychainSwiftAPITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,
 				6003F5BE195388D20070C39A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "KeychainSwiftAPI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6003F5C3195388D20070C39A /* Debug */,
-				6003F5C4195388D20070C39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

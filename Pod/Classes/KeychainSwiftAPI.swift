@@ -1012,7 +1012,7 @@ public class Keychain
     public class func secItemAdd(#query : Query) -> (status: ResultCode, result: NSObject?)
     {
         let dic = query.toNSDictionary()
-        let resultAndStatus = CXKeychainHelper.secItemAddCaller(query.toNSDictionary())
+        let resultAndStatus = CXKeychainHelper.secItemAddCaller(query.toNSDictionary() as [NSObject : AnyObject])
         let status = ResultCode.fromRaw(resultAndStatus.status)
         return (status: status, result: resultAndStatus.result)
     }
@@ -1027,7 +1027,7 @@ public class Keychain
     public class func secItemCopyMatching(#query : Query) -> (status: ResultCode, result: NSObject?)
     {
         let dic : NSDictionary = query.toNSDictionary()
-        let resultAndStatus = CXKeychainHelper.secItemCopyMatchingCaller(dic)
+        let resultAndStatus = CXKeychainHelper.secItemCopyMatchingCaller(dic as [NSObject : AnyObject])
         return (status: ResultCode.fromRaw(resultAndStatus.status), result: resultAndStatus.result)
     }
     

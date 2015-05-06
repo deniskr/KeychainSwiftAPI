@@ -8,7 +8,7 @@
 
 // KeychainSwiftAPI
 #define COCOAPODS_POD_AVAILABLE_KeychainSwiftAPI
-#define COCOAPODS_VERSION_MAJOR_KeychainSwiftAPI 0
-#define COCOAPODS_VERSION_MINOR_KeychainSwiftAPI 1
+#define COCOAPODS_VERSION_MAJOR_KeychainSwiftAPI 1
+#define COCOAPODS_VERSION_MINOR_KeychainSwiftAPI 0
 #define COCOAPODS_VERSION_PATCH_KeychainSwiftAPI 0
 
