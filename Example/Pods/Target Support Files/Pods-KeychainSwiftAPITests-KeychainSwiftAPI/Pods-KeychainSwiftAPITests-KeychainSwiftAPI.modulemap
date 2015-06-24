@@ -1,6 +1,0 @@
-framework module KeychainSwiftAPI {
-  umbrella header "Pods-KeychainSwiftAPITests-KeychainSwiftAPI-umbrella.h"
-
-  export *
-  module * { export * }
-}

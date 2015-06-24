@@ -20,6 +20,7 @@ public func != (left:Keychain.ResultCode, right:Keychain.ResultCode) -> Bool {
 
 public class Keychain
 {
+    public init() {}
     /**
     A Swift style wrapper of OSStatus result codes that can be returned from KeyChain functions.
     */

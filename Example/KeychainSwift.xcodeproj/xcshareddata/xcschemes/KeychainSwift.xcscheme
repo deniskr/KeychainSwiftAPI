@@ -9,15 +9,15 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "411D93F31AFA53B000BE6DF9"
-               BuildableName = "KeychainSwiftAPITests.xctest"
-               BlueprintName = "KeychainSwiftAPITests"
-               ReferencedContainer = "container:KeychainSwiftAPITests.xcodeproj">
+               BuildableName = "KeychainSwift.xctest"
+               BlueprintName = "KeychainSwiftTests"
+               ReferencedContainer = "container:KeychainSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "411D93F31AFA53B000BE6DF9"
-               BuildableName = "KeychainSwiftAPITests.xctest"
-               BlueprintName = "KeychainSwiftAPITests"
-               ReferencedContainer = "container:KeychainSwiftAPITests.xcodeproj">
+               BuildableName = "KeychainSwift.xctest"
+               BlueprintName = "KeychainSwiftTests"
+               ReferencedContainer = "container:KeychainSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,15 +58,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "411D93F31AFA53B000BE6DF9"
-            BuildableName = "KeychainSwiftAPITests.xctest"
-            BlueprintName = "KeychainSwiftAPITests"
-            ReferencedContainer = "container:KeychainSwiftAPITests.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "411D93F31AFA53B000BE6DF9"
-            BuildableName = "KeychainSwiftAPITests.xctest"
-            BlueprintName = "KeychainSwiftAPITests"
-            ReferencedContainer = "container:KeychainSwiftAPITests.xcodeproj">
+            BuildableName = "KeychainSwift.xctest"
+            BlueprintName = "KeychainSwiftTests"
+            ReferencedContainer = "container:KeychainSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
