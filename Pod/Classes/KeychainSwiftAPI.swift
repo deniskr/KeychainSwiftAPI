@@ -20,6 +20,7 @@ public func != (left:Keychain.ResultCode, right:Keychain.ResultCode) -> Bool {
 
 public class Keychain
 {
+    public init() {}
     /**
     A Swift style wrapper of OSStatus result codes that can be returned from KeyChain functions.
     */
@@ -1012,7 +1013,7 @@ public class Keychain
     public class func secItemAdd(#query : Query) -> (status: ResultCode, result: NSObject?)
     {
         let dic = query.toNSDictionary()
-        let resultAndStatus = CXKeychainHelper.secItemAddCaller(query.toNSDictionary())
+        let resultAndStatus = CXKeychainHelper.secItemAddCaller(query.toNSDictionary() as [NSObject : AnyObject])
         let status = ResultCode.fromRaw(resultAndStatus.status)
         return (status: status, result: resultAndStatus.result)
     }
@@ -1027,7 +1028,7 @@ public class Keychain
     public class func secItemCopyMatching(#query : Query) -> (status: ResultCode, result: NSObject?)
     {
         let dic : NSDictionary = query.toNSDictionary()
-        let resultAndStatus = CXKeychainHelper.secItemCopyMatchingCaller(dic)
+        let resultAndStatus = CXKeychainHelper.secItemCopyMatchingCaller(dic as [NSObject : AnyObject])
         return (status: ResultCode.fromRaw(resultAndStatus.status), result: resultAndStatus.result)
     }
     
