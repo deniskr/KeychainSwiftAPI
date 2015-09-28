@@ -44,17 +44,17 @@ class KeychainSwiftAPITests: XCTestCase {
         
         q.kSecValueData = "Privet".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         
-        let delit = Keychain.secItemDelete(query: q)
+        Keychain.secItemDelete(query: q)
         
         let res1 = Keychain.secItemAdd(query: q)
         XCTAssert(res1.status == Keychain.ResultCode.errSecSuccess, "SecItemAdd returned success")
         
-        println("Keychain secItemAdd returned: \(res1.status)")
+        print("Keychain secItemAdd returned: \(res1.status)")
         
         if let resUw = res1.result {
-            println("res1 TypeID = \(CFGetTypeID(resUw)), Description = \(resUw)")
+            print("res1 TypeID = \(CFGetTypeID(resUw)), Description = \(resUw)")
         } else {
-            println("res1 is nil")
+            print("res1 is nil")
         }
         
         let q2 = Keychain.Query()
@@ -65,12 +65,12 @@ class KeychainSwiftAPITests: XCTestCase {
         let res2 = Keychain.secItemCopyMatching(query:q2)
         XCTAssert(res2.status == Keychain.ResultCode.errSecSuccess, "SecItemCopyMatching returned success")
         
-        println("Status of secItemCopyMatching: \(res2.status.toRaw())")
+        print("Status of secItemCopyMatching: \(res2.status.toRaw())")
         if let r = res2.result
         {
-            println("res2 TypeID: \(CFGetTypeID(r)) Description: \(r)")
+            print("res2 TypeID: \(CFGetTypeID(r)) Description: \(r)")
         } else {
-            println("res2 is nil")
+            print("res2 is nil")
         }
         
         
@@ -97,9 +97,9 @@ class KeychainSwiftAPITests: XCTestCase {
         
         let r = Keychain.secItemAdd(query: q)
         if (r.status == Keychain.ResultCode.errSecSuccess) {
-            println("Password saved. Returned object: \(r.result)")
+            print("Password saved. Returned object: \(r.result)")
         } else {
-            println("Error saving password: \(r.status.description)")
+            print("Error saving password: \(r.status.description)")
         }
         
     }
