@@ -25,7 +25,7 @@ public class Keychain
     A Swift style wrapper of OSStatus result codes that can be returned from KeyChain functions.
     */
 
-    public enum ResultCode : Printable {
+    public enum ResultCode : CustomStringConvertible {
         case errSecSuccess                //  = 0        // No error.
         case errSecUnimplemented          //  = -4       // Function or operation not implemented.
         case errSecParam                  //  = -50      // One or more parameters passed to the function were not valid.
@@ -1005,14 +1005,13 @@ public class Keychain
     /**
     A Swift wrapper of OSStatus SecItemAdd(CFDictionaryRef attributes,CFTypeRef *result) C function.
     
-    :param: query An object wrapping a CFDictionaryRef with attributes
-    :returns: A pair containing the result code and an NSObject that was returned in the result parameter of SecItemAdd call.
+    - parameter query: An object wrapping a CFDictionaryRef with attributes
+    - returns: A pair containing the result code and an NSObject that was returned in the result parameter of SecItemAdd call.
     
     */
     
-    public class func secItemAdd(#query : Query) -> (status: ResultCode, result: NSObject?)
+    public class func secItemAdd(query query : Query) -> (status: ResultCode, result: NSObject?)
     {
-        let dic = query.toNSDictionary()
         let resultAndStatus = CXKeychainHelper.secItemAddCaller(query.toNSDictionary() as [NSObject : AnyObject])
         let status = ResultCode.fromRaw(resultAndStatus.status)
         return (status: status, result: resultAndStatus.result)
@@ -1021,11 +1020,11 @@ public class Keychain
     /**
     A Swift wrapper of OSStatus SecItemCopyMatching(CFDictionaryRef query, CFTypeRef *result) C function.
     
-    :param: query An object wrapping a CFDictionaryRef with query
-    :returns: A pair containing the result code and an NSObject that was returned in the result parameter of SecItemCopyMatching call.
+    - parameter query: An object wrapping a CFDictionaryRef with query
+    - returns: A pair containing the result code and an NSObject that was returned in the result parameter of SecItemCopyMatching call.
     
     */
-    public class func secItemCopyMatching(#query : Query) -> (status: ResultCode, result: NSObject?)
+    public class func secItemCopyMatching(query query : Query) -> (status: ResultCode, result: NSObject?)
     {
         let dic : NSDictionary = query.toNSDictionary()
         let resultAndStatus = CXKeychainHelper.secItemCopyMatchingCaller(dic as [NSObject : AnyObject])
@@ -1035,12 +1034,12 @@ public class Keychain
     /**
     A Swift wrapper of OSStatus SecItemDelete(CFDictionaryRef query) C function.
     
-    :param: query An object wrapping a CFDictionaryRef with query
-    :returns: A result code.
+    - parameter query: An object wrapping a CFDictionaryRef with query
+    - returns: A result code.
     
     */
     
-    public class func secItemDelete(#query : Query) -> ResultCode
+    public class func secItemDelete(query query : Query) -> ResultCode
     {
         let statusRaw = SecItemDelete(query.toNSDictionary())
         let status = ResultCode.fromRaw(statusRaw)
@@ -1050,12 +1049,12 @@ public class Keychain
     /**
     A Swift wrapper of OSStatus SecItemUpdate(CFDictionaryRef query, CFDictionaryRef attributesToUpdate) C function.
     
-    :param: query An object wrapping a CFDictionaryRef with query
-    :param: attributesToUpdate An object wrapping a CFDictionaryRef with attributesToUpdate
-    :returns: A result code.
+    - parameter query: An object wrapping a CFDictionaryRef with query
+    - parameter attributesToUpdate: An object wrapping a CFDictionaryRef with attributesToUpdate
+    - returns: A result code.
     
     */
-    public class func secItemUpdate(#query : Query, attributesToUpdate : Query) -> ResultCode
+    public class func secItemUpdate(query query : Query, attributesToUpdate : Query) -> ResultCode
     {
         let statusRaw = SecItemUpdate(query.toNSDictionary(),attributesToUpdate.toNSDictionary())
         let status = ResultCode.fromRaw(statusRaw)
