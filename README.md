@@ -55,7 +55,7 @@ r.result contains the object that was retured by the C SecItemAdd underlying fun
 
 iOS 8.0 or above
 You have to use cocoapod compiled from the Swift branch, since the master branch of cocoapods still does not fully support Swift. 
-See: [Using Cocoapods Unreleased Features](http://guides.cocoapods.org/using/unreleased-features)
+See: [Using CocoaPods Unreleased Features](http://guides.cocoapods.org/using/unreleased-features)
 
 ## Installation
 
